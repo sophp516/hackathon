@@ -1,16 +1,19 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import StudyGroup from './studygroup/StudyBase.jsx';
+import StudyGroup from './studygroup/StudyGroup.jsx';
 import Navbar from './navbar/navbar';
-import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg'; // Fix the import path for viteLogo
+import Signup from './authpage/Signup.jsx';
+import Login from './authpage/Login.jsx';
+import Homepage from './homepage/Homepage.jsx';
+import { useAuthContext } from './context/AuthContext.jsx';
 import './App.css';
 import ReactDOM from 'react-dom';
 import Leaderboard from './components/Leaderboard.jsx';
 
 const App = () => {
-  const [count, setCount] = useState(0);
+
+  const {authUser} = useAuthContext();
 
   return (
 
@@ -19,8 +22,7 @@ const App = () => {
       <div>
        <Routes>
           <Route path="/" element={<StudyGroup />} />
-          <Route path="/studygroup" element={<StudyGroup />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/studygroup" element={StudyGroup} />
         </Routes>
       </div>
     </Router>

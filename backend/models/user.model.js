@@ -32,6 +32,16 @@ const userSchema = new mongoose.Schema({
             default: []
         }
     ],
+    coordinates: {
+        type: {
+            type: String,
+            enum: ['Point'],
+        },
+        coordinates: {
+            type: [Number],
+            default: [-1, -1]
+        }
+    }
 }, {timestamps: true})
 
 const User = mongoose.model("User", userSchema)
