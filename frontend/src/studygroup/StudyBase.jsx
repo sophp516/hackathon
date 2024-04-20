@@ -20,6 +20,7 @@ const StudyBase = () => {
     
     const handleStatus = () => {
         setJoinedStatus(!joinedStatus);
+        setCreateStatus(false);
     }
 
    const nameInputs = (e) =>{
@@ -60,8 +61,6 @@ const StudyBase = () => {
         }
      setCreateStatus(!createStatus);
     }
-
-
 
     console.log("Groups in StudyGroup:",newGroup); 
 
