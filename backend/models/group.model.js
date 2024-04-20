@@ -12,6 +12,9 @@ const groupSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    description: {
+        type: String,
+    },
 }, {timestamps: true})
 
 const Group = mongoose.model("Group", groupSchema);

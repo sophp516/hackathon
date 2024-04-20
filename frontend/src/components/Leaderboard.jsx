@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState , useEffect} from 'react';
 import MockUsers from './mockUsers';
-import { set } from 'firebase/database';
 import './Leaderboard.css';
 
 const Leaderboard = () => {
