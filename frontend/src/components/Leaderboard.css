@@ -1,0 +1,23 @@
+
+.leaderboard-container{
+    width: 50vh;
+    height: 50vh;
+    background-color: wheat;
+}
+
+.rank-container{
+    background-color:black;
+    height: 80%;
+}
+.individuals{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px
+}
+.individuals-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:10px;
+}
