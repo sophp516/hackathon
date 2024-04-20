@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import StudyGroup from './studygroup/StudyGroup.jsx';
+import StudyGroup from './studygroup/StudyBase.jsx';
 import Navbar from './navbar/navbar';
 import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg'; // Fix the import path for viteLogo
 import './App.css';
+import ReactDOM from 'react-dom';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -13,11 +14,11 @@ const App = () => {
   return (
 
     <Router>
-        {/* <Navbar /> */}
+        <Navbar />
       <div>
        <Routes>
           <Route path="/" element={<StudyGroup />} />
-          <Route path="/studygroup" element={StudyGroup} />
+          <Route path="/studygroup" element={<StudyGroup />} />
         </Routes>
       </div>
     </Router>
