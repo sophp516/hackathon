@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>study group</title>
+    <title>study time</title>
+    <link rel="stylesheet" href="timer.css">
+  </head>
+  <body>
+
+    <div class="timer-container">
+        <h1 class="heading">study time</h1>
+        <div class="timer">
+            <div class="sub_timer">
+                <h1 id="hour" class="digit">00</h1>
+                <p class="digit_name"> hr</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="minute" class="digit">00</h1>
+                <p class="digit_name"> min</p>
+            </div>
+            <div class="sub_timer">
+                <h1 id="second" class="digit">00</h1>
+                <p class="digit_name"> sec</p>
+            </div>
+        </div>
+
+        <div class="button"> 
+            <div class="sub_button">
+                <button id="startButton" onclick="startTimer()">start</button>
+            </div>
+            <div class="sub_button">
+                <button id="stopButton" onclick="stopTimer()" disabled>stop</button>
+            </div>
+            
+        </div>
+        <!-- javascript -->
+        <script>
+            // script.js
+            let counter = null;
+            let elapsedTime = 0; // time in seconds
+
+            function timer() {
+                elapsedTime++;
+
+                var hours = Math.floor(elapsedTime / 3600);
+                var minutes = Math.floor((elapsedTime % 3600) / 60);
+                var seconds = Math.floor(elapsedTime % 60);
+                
+                document.querySelector("#hour").innerHTML = pad(hours);
+                document.querySelector("#minute").innerHTML = pad(minutes);
+                document.querySelector("#second").innerHTML = pad(seconds);
+
+                checkForMidnightReset();
+            }
+
+            function pad(number) {
+                return number < 10 ? '0' + number : number;
+            }
+
+            function reset() {
+                elapsedTime = 0;
+                document.querySelector("#hour").innerHTML = pad(0);
+                document.querySelector("#minute").innerHTML = pad(0);
+                document.querySelector("#second").innerHTML = pad(0);
+                if (counter) {
+                    clearInterval(counter);
+                    counter = null;
+                    document.getElementById('startButton').disabled = false;
+                    document.getElementById('stopButton').disabled = true;;
+                }
+            }
+
+            function checkForMidnightReset() {
+                let now = new Date();
+                if (now.getHours() === 0 && now.getMinutes() === 0 && now.getSeconds() === 0) {
+                    reset();
+                }
+            }
+
+            function initialMidnightCheck() {
+                let now = new Date();
+                let msToMidnight = ((23 - now.getHours()) * 3600 + (59 - now.getMinutes()) * 60 + (60 - now.getSeconds())) * 1000;
+                setTimeout(function() {
+                    reset();  // Reset at midnight
+                    setInterval(reset, 24 * 60 * 60 * 1000);  // Set to reset every 24 hours thereafter
+                }, msToMidnight);
+            }
+
+            initialMidnightCheck();
+
+            function startTimer() {
+                if (!counter) {
+                    counter = setInterval(timer, 1000); //1000=1sec
+                    document.getElementById('startButton').disabled = true;
+                    document.getElementById('stopButton').disabled = false;
+                }
+            }
+
+            function stopTimer() {
+                if (counter) {
+                    clearInterval(counter);
+                    counter = null;
+                    document.getElementById('startButton').disabled = false;
+                    document.getElementById('stopButton').disabled = true;
+                }
+            }
+
+        </script>
+    <div id="root"></div>
+  </body>
+</html>
