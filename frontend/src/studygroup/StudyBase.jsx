@@ -4,7 +4,7 @@ import MockData from './mockdata.jsx';
 import JoinGroup from './JoinGroup.jsx';
 import './StudyBase.css';
 
-const StudyGroup = () => {
+const StudyBase = () => {
     const [joinedStatus, setJoinedStatus] = useState(false);
     const [groups,setGroups] = useState(MockData.groups);
     
@@ -34,4 +34,4 @@ const StudyGroup = () => {
     );
 
 };
-export default StudyGroup;
+export default StudyBase;

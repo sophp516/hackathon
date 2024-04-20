@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import StudyGroup from './studygroup/StudyGroup.jsx';
+import StudyBase from './studygroup/StudyBase.jsx';
 import Navbar from './navbar/navbar';
 import Signup from './authpage/Signup.jsx';
 import Login from './authpage/Login.jsx';
@@ -22,7 +23,8 @@ const App = () => {
       <div>
        <Routes>
           <Route path="/" element={<StudyGroup />} />
-          <Route path="/studygroup" element={StudyGroup} />
+          <Route path="/studygroup" element={<StudyBase/>} />
+          <Route path="/leaderboard" element={<Leaderboard/>} />
         </Routes>
       </div>
     </Router>
