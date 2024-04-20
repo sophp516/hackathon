@@ -1,10 +1,18 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const StudyGroup = () =>{
+const StudyGroup = (props) => {
     
+    const [groupId, setGroupId] = useState('')
+    console.log(groupId)
 
-
+    useEffect(() => {
+        setGroupId(props.status);
+    })
+    
+    return (
+        <p>space</p>
+    )
 
 
 

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import StudyGroup from './studygroup/StudyBase.jsx';
+import StudyBase from './studygroup/StudyBase.jsx';
 import Navbar from './navbar/navbar';
 import Signup from './authpage/Signup.jsx';
 import Login from './authpage/Login.jsx';
@@ -22,9 +22,10 @@ const App = () => {
       <div>
        <Routes>
           <Route path="/" element={authUser ? <Homepage /> : <Navigate to={"/login"} />} />
-          <Route path="/studygroup" element={authUser ? <StudyGroup /> : <Navigate to={"/login"} />} />
+          <Route path="/studybase" element={authUser ? <StudyBase /> : <Navigate to={"/login"} />} />
           <Route path="/signup" element={authUser ? <Navigate to={"/"}/> : <Signup />} />
           <Route path="/login" element={authUser ? <Navigate to={"/"}/> : <Login />} />
+          <Route path="/leaderboard" element={authUser ? <Leaderboard /> : <Navigate to={"/login"} />} />
         </Routes>
       </div>
     </Router>

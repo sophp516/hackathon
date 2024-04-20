@@ -1,30 +1,31 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import useJoinGroup from '../hooks/useJoinGroup.js';
 import MockData from './mockdata.jsx';
 import JoinGroup from './JoinGroup.jsx';
+import StudyGroup from './StudyGroup.jsx';
 import './StudyBase.css';
+import useGetMyGroup from '../hooks/useGetMyGroup.js';
 
-const StudyGroup = () => {
-    const [joinedStatus, setJoinedStatus] = useState(false);
-    const [groups,setGroups] = useState(MockData.groups);
+const StudyBase = () => {
     
-    const handleStatus = () => {
-        setJoinedStatus(!joinedStatus);
-    }
-
-    console.log("Groups in StudyGroup:", groups); 
+    const [groups,setGroups] = useState(MockData.groups);
+    const { joinGroup } = useJoinGroup();
+    const { myGroup } = useGetMyGroup();
+    console.log(myGroup);
+    
+    const handleStatus = async (groupId) => {
+        await joinGroup(groupId);
+    } 
 
     return (
         <div className='main-container'>
             <p>Hello</p>
-            {joinedStatus ? 
-                <div className='joining-page'>
-                    <p> You joined a group</p>
-                    <button type='button' onClick={handleStatus}> join</button>
-                </div> 
+            {myGroup ? 
+                <p>hello</p>
             :<div>
                  <JoinGroup
-                    status={joinedStatus}
+                    status={myGroup}
                     groups={groups}
                     handleStatus={handleStatus}
                 />
