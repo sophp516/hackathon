@@ -21,16 +21,10 @@ const App = () => {
         <Navbar />
       <div>
        <Routes>
-<<<<<<< HEAD
           <Route path="/" element={authUser ? <Homepage /> : <Navigate to={"/login"} />} />
           <Route path="/studygroup" element={authUser ? <StudyGroup /> : <Navigate to={"/login"} />} />
           <Route path="/signup" element={authUser ? <Navigate to={"/"}/> : <Signup />} />
           <Route path="/login" element={authUser ? <Navigate to={"/"}/> : <Login />} />
-=======
-          <Route path="/" element={<StudyGroup />} />
-          <Route path="/studygroup" element={<StudyGroup />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
->>>>>>> origin/study
         </Routes>
       </div>
     </Router>
