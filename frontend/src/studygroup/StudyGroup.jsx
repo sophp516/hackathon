@@ -18,9 +18,7 @@ const StudyGroup = () => {
                     <JoinGroup
                         status = {joinedStatus}
                         groups = {groups}
-                        
                     />
-
 
                 </div> 
             :<div></div>}
