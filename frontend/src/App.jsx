@@ -16,7 +16,7 @@ const App = () => {
   return (
 
     <Router>
-        {/* <Navbar /> */}
+        <Navbar />
       <div>
        <Routes>
           <Route path="/" element={authUser ? <Homepage /> : <Navigate to={"/login"} />} />
