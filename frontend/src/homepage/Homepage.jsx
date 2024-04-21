@@ -25,7 +25,7 @@ const Homepage = () => {
             </div>
             <div className="homepage-content">
                 <div className="left-column-container">
-                    <div className="left-coloum-text">
+                    <div className="left-column-text">
                         <h1 className="homepage-header">
                             <span>W</span>
                             <span>e</span>
@@ -42,7 +42,7 @@ const Homepage = () => {
                             <span>!</span>
                             </h1> {/* Welcome message here */}
                         {/* <h1 className="homepage-header">Welcome back!</h1> Welcome message here */}
-                        <h3 className="homepage-text">Seize the day and get some studying done.</h3> {/* Text here */}
+                        <h3 className="homepage-text">Seize the day and get to studying.</h3> {/* Text here */}
                     </div >
                     <div className="left-wrapper">
                         <div className="avatar-container-home">
@@ -53,14 +53,14 @@ const Homepage = () => {
                                 <img src="/assets/quote.png" id="avatar-img"/>
                             </div>
                         </div>
-                        =</div>
+                        </div>
                         <div className="study-group-container"> 
                             <div className="sg-header">
                                 <h2>Your Study Group</h2>
                             </div>
+                            <img src="/assets/panda3.png" id="study-image"/>
                             <div className="study-info">
-                                <img src="/assets/panda3.png" id="study-image"/>
-                                <p>CS10 study group!</p>
+                                <h1>CS10 study group!</h1>
                                 <p>meets every week in berry 171c</p>
                             </div>
                         </div>
