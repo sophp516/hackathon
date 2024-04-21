@@ -57,6 +57,9 @@ const StudyBase = () => {
         await joinGroup(groupId)
         setJoinedStatus(true)
     }
+    const handleJoinStatus = () => {
+        setJoinedStatus(!joinedStatus)
+    }
         
 
     const handleSubmit = async () => {
@@ -81,8 +84,6 @@ const StudyBase = () => {
         }
     }
 
-
-
     console.log("Groups in StudyGroup:",newGroup); 
 
     return (
@@ -92,6 +93,7 @@ const StudyBase = () => {
             <div>
                 <StudyGroup 
                     status={myGroup}
+                    handleJoinStatus={handleJoinStatus}
                     />
                 </div>
             :<div>
@@ -99,6 +101,7 @@ const StudyBase = () => {
                     {/* this will a over lay with z- index of 1 */}
                     {createStatus ? 
                     <div className='create-group-container'> 
+                        <button onClick={()=>setCreateStatus(false)}>X</button>
                         <input
                             placeholder='Name of the Group'
                             type='text'

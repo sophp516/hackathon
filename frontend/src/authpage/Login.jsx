@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import useLogin from '../hooks/useLogin.js';
+import "./Login.css"
 
 const Login = () => {
     const [user, setUser] = useState({
@@ -25,8 +26,14 @@ const Login = () => {
     }
 
     return (
+        <div className='login-root-container'>
+        
+        <div className='login-left-container'>
+            <img src='/assets/boy.png' alt='image' id='guy-img'/>
+        </div>
         <div className="login">
-            <h1>Login</h1>
+            <h1>Welcome Back!</h1>
+            <p id='welcome-message'>Login to see your study groups and begin a session</p>
             <div className="formContainer">
                 <form onSubmit={handleSubmit}>
                     <div className="label-container">
@@ -42,6 +49,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
+    </div>
     )
 }
 

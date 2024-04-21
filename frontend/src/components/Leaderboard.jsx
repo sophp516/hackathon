@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState , useEffect} from 'react';
 import MockUsers from './mockUsers';
@@ -5,6 +6,16 @@ import './Leaderboard.css';
 
 const Leaderboard = (props) => {
     const [leaderboard, setLeaderboard] = useState([]);
+
+    const formatTime = (totalSeconds) => {
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        const seconds = totalSeconds % 60;
+    
+        const formatNumber = (number) => (number < 10 ? `0${number}` : number);
+    
+        return `${formatNumber(hours)}:${formatNumber(minutes)}:${formatNumber(seconds)}`;
+    };
     
     useEffect(() => {
         const sortedUsers = props.members.sort((a, b) => b.studyTime - a.studyTime);
@@ -27,7 +38,7 @@ const Leaderboard = (props) => {
                             <span>{user.rank}   </span>
                             <span>{user.avatar}   </span>
                             <span>{user.name}   </span>
-                            <span>{user.time} minutes</span>
+                            <span>{formatTime(user.time)}</span>
                         </div>
                       
                         
