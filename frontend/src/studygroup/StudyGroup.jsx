@@ -24,15 +24,15 @@ const StudyGroup = (props) => {
         {
             name: "joyce",
             avatar: "./assets/redpanda.png",
-            x: 50,
-            y: 155
+            x: 500,
+            y: 275
             ,
         },
         {
-            name: "ranom",
-            avatar: "./assets/redpanda.png",
-            x: 500,
-            y: 300,
+            name: "rachael",
+            avatar: "./assets/default.png",
+            x: 840,
+            y: 380,
         }
     ])
 
@@ -105,12 +105,12 @@ const StudyGroup = (props) => {
             user.avatar ? ( // Check if `avatar` property exists
                 <div key={index} className='avatar-container' 
                  style={{ position: 'absolute', left: `${user.x}px`, top: `${user.y}px` }}>
+                    <div className="nameback">{user.name}</div>
                     <img
                         src={user.avatar}
                         id='avatar'
                         onClick={(e) => selectAvatar(user.name,e)}
                     />
-                    <p>{user.name}</p>
                 </div>
                 
             ) : null // Handle the case where `avatar` is not defined
