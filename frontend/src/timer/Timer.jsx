@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Timer.css'; // Ensure the CSS is properly imported
 import useUpdateTime from '../hooks/useUpdateTime';
 import useGetTime from '../hooks/useGetTime';
 
@@ -91,15 +92,15 @@ const Timer = () => {
             <div className="timer">
                 <div className="sub_timer">
                     <h1 className="digit">{String(hours).padStart(2, '0')}</h1>
-                    <p className="digit_name"> hr</p>
+                    <p className="digit_name">hr</p>
                 </div>
                 <div className="sub_timer">
                     <h1 className="digit">{String(minutes).padStart(2, '0')}</h1>
-                    <p className="digit_name"> min</p>
+                    <p className="digit_name">min</p>
                 </div>
                 <div className="sub_timer">
                     <h1 className="digit">{String(seconds).padStart(2, '0')}</h1>
-                    <p className="digit_name"> sec</p>
+                    <p className="digit_name">sec</p>
                 </div>
             </div>
 

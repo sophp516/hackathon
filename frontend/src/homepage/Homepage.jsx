@@ -6,11 +6,6 @@ import './Homepage.css'
 
 const Homepage = () => {
     const { logout } = useLogout();
-    const { url } = useGetAvatar();
-    const parts = url.url.toString().split("/");
-    const fileName = parts[parts.length - 1];
-    const newUrl = `/src/assets/${fileName}`;
-    console.log(url)
 
     const LogoutButton = () => {
         return (
@@ -21,7 +16,7 @@ const Homepage = () => {
     }
     return (
         <div className="homepage-main-container">
-            <img src={newUrl} />
+            <img src="src/assets/default.png" />
             <Timer />
             <TaskManager />
             <LogoutButton />

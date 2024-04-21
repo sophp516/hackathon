@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import './style.css';
 import useAddTask from '../hooks/useAddTask';
 
 const App = () => {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+  const [taskId, setTaskId] = useState(1);  // Initial ID value
   const [input, setInput] = useState('');
   const [date, setDate] = useState('');
   const { addTaskf } = useAddTask();
@@ -14,39 +16,41 @@ const App = () => {
   const addTask = () => {
     if (!input.trim()) return;
     const newTask = {
+      id: taskId,  // Use the current count as ID
       task: input,
       dueDate: date,
       completed: false,
     };
-
-    console.log(newTask.dueDate)
-    addTaskf(newTask.task, newTask.dueDate)
+  
+    console.log(newTask.dueDate);
+    addTaskf(newTask.task, newTask.dueDate);
     setTasks([...tasks, newTask]);
     setInput('');
     setDate('');
+    setTaskId(taskId + 1);  // Increment the ID for the next task
   };
-
+  
   const toggleCompletion = (id) => {
-    const updatedTasks = tasks.map(task =>
+    setTasks(tasks.map(task =>
       task.id === id ? { ...task, completed: !task.completed } : task
-    );
-    setTasks(updatedTasks);
+    ));
   };
-
+  
   const deleteTask = (id) => {
     setTasks(tasks.filter(task => task.id !== id));
-  };
+  };  
 
   return (
     <div className="container">
       <header>
         <h1>to do</h1>
-        <div className="input-section">
-          <input type="text" placeholder="What do you want to study?" value={input} onChange={e => setInput(e.target.value)} />
-          <input type="date" value={date} onChange={e => setDate(e.target.value)} />
-          <button onClick={addTask}>Add Task</button>
-        </div>
       </header>
+      <div className="input-section">
+        <input type="text" placeholder="What do you want to study?" value={input} onChange={e => setInput(e.target.value)} />
+        <input type="date" value={date} onChange={e => setDate(e.target.value)} />
+        <button onClick={addTask}>add task</button>
+      </div>
+      
 
       <table>
         <thead>
