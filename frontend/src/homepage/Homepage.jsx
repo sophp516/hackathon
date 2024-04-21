@@ -53,7 +53,7 @@ const Homepage = () => {
                                 <img src="/assets/quote.png" id="avatar-img"/>
                             </div>
                         </div>
-                        =</div>
+                        </div>
                         <div className="study-group-container"> 
                             <div className="sg-header">
                                 <h2>Your Study Group</h2>
