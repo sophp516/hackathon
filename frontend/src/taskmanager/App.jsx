@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import useAddTask from '../hooks/useAddTask';
 
 const App = () => {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
   const [input, setInput] = useState('');
   const [date, setDate] = useState('');
+  const { addTaskf } = useAddTask();
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -12,11 +14,13 @@ const App = () => {
   const addTask = () => {
     if (!input.trim()) return;
     const newTask = {
-      id: Date.now(), // simplified ID generation
       task: input,
       dueDate: date,
       completed: false,
     };
+
+    console.log(newTask.dueDate)
+    addTaskf(newTask.task, newTask.dueDate)
     setTasks([...tasks, newTask]);
     setInput('');
     setDate('');
@@ -36,7 +40,7 @@ const App = () => {
   return (
     <div className="container">
       <header>
-        <h1>t o ❤️ d o</h1>
+        <h1>to do</h1>
         <div className="input-section">
           <input type="text" placeholder="What do you want to study?" value={input} onChange={e => setInput(e.target.value)} />
           <input type="date" value={date} onChange={e => setDate(e.target.value)} />
