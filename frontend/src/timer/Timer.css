@@ -21,7 +21,7 @@ body {
     margin: 0;
     display: flex;
     place-items: top;
-    width: 100%;
+    width: 100%; /*causes homepage issues */
     height: 100vh;
     background: transparent;
     background-size: cover;

@@ -23,6 +23,7 @@ const StudyBase = () => {
     const { joinGroup } = useJoinGroup();
     const { createGroup } = useCreateGroup();
     const { myGroup } = useGetMyGroup();
+   
 
     console.log(myGroup);
 
@@ -104,29 +105,38 @@ const StudyBase = () => {
                     {createStatus ? 
                     <div className='create-group-container'> 
                         <div className="button-holder"> <button onClick={()=>setCreateStatus(false)} id="create-group-small">X</button></div>
+                        <h1 className="bigheader">Create a new study group</h1>
+
+                        <h1 className="header">Group name</h1>
                         <input
-                            placeholder='Name of the Group'
+                            placeholder='Enter name of the group'
                             type='text'
                             value={newGroup.name}
                             onChange={nameInputs}
                         />
-                        <img src={newGroup.image} alt='uploaded image' id='uploaded-img'/>
+                       
+                        {/* <select>
+                            <option></option>
+                        </select> */}
+                        <h1 className="header">Description (optional)</h1>
+                        <input id="textarea"
+                            placeholder='Enter subject, class, location, etc.'
+                            type='text'
+                            value={newGroup.description}
+                            onChange={descriptionInputs}
+                        />
+                        
+                        <h1 className="header">Picture</h1>
+                        <img src={newGroup.image} alt="   Upload an image" id='uploaded-img'/>
                         <input
                             type='file'
                             onChange={imageInputs}
                             accept='image/*'
                             multiple={false}
                         />
-                        {/* <select>
-                            <option></option>
-                        </select> */}
-                        <input id="textarea"
-                            placeholder='Description (Optional)'
-                            type='text'
-                            value={newGroup.description}
-                            onChange={descriptionInputs}
-                        />
+                        <div className="create-button-container">
                         <button type='button' onClick={handleSubmit} id="group-submit">Create</button>
+                        </div>
                         </div>
                     : 
                     <div>

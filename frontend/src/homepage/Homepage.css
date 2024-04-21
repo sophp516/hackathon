@@ -88,7 +88,9 @@ body {
 
 .homepage-main-container {
     display: flex;
-    padding: 0 20px 0 0; /* Add space around the content */
+    padding: 0 20px 0 0; /*Add space around the content*/
+    margin: 0;
+    width: 100vh;
 }
 
 .homepage-content {

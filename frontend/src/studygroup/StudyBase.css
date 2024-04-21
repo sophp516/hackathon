@@ -13,14 +13,87 @@
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
-    width: 700px;
-    height: 700px;
+    width: 610px;
+    height: 760px;
     margin: auto;
     margin-top: 100px;
     background-color: white;
-    border: 3px solid black;
-    border-radius: 13px;
+    border: 2px solid black;
+    border-radius: 12px;
+    box-shadow: 6px 6px 0px 0px #000;
 }
+
+.bigheader {
+    color: #000;
+    font-family: "Street - Plain";
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+
+    display: block;
+    margin: auto;
+    text-align: center; /* Center horizontally */
+    width: 100%; /* Ensure it takes the full width of the container */
+    height: 20px; /* Set the height of the container */
+    line-height: 60px; /* Vertically center the text */
+
+    margin-bottom: 30px;
+}
+
+.create-group-container h1.header {
+    margin-top: 30px; /* Adjust the margin as needed to create space between the header and the input */
+    margin-left: 105px; /* Adjust the margin as needed to create space between the header and the input */
+    margin-bottom: 0px;
+}
+
+.create-group-container input[type="text"] {
+    margin-top: 10px; /* Adjust the margin as needed to create space between input elements */
+    height: 50px; /* Adjust the height as needed */
+    border: 1.5px solid #000; /* Add a solid black border */
+    border-radius: 8px;
+    padding: 10px; /* Adjust the padding to shift the placeholder text */
+}
+
+  .create-group-container > input {
+    width: 400px;
+    height: 30px;
+    margin-left: 105px; /* Adjust the margin as needed */
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 3px;
+}
+
+.create-group-container #textarea {
+    width: 400px; /* Adjust the width as needed */
+    height: 60px; /* Keep the height the same or adjust as needed */
+    padding: 10px; /* Adjust the padding to shift the placeholder text */
+}
+
+.create-group-container #uploaded-img {
+    align-self: flex-start; /* Adjust alignment as needed */
+    width: 1000px; /* Adjust the width as needed */
+    height: 170px; /* Adjust the height as needed */
+    border: 1.5px solid #000; /* Add a solid black border */
+    border-radius: 8px;
+}
+
+#create-group-container input[type="file"] {
+    width: 100px; /* Adjust the width as needed */
+    height: 50px; /* Adjust the height as needed */    
+    margin-bottom: -10px;
+}
+
+
+.create-button-container {
+    margin-top: 5px; /* Adjust as needed */
+    text-align: center; /* Center the button horizontally */
+    margin-bottom: 35px;
+  }
+
+  #create-group-container button#group-submit {
+    margin-bottom: 20px; /* Move the button text up by adjusting the top margin */
+  }
 
 .group-container {
     position: relative;
@@ -72,18 +145,31 @@ button {
     max-width: 60%;
     height: 200px;
     margin: auto;
-    border: 2px solid black;
+    border: 1.5px solid black;
 }
 
 
 #create-group {
     max-width: 300px;
     background-color: #FFBC23;
-    border: 2px solid black;
+    border: 1.5px solid black;
     margin-top: 20px;
     right: 20px;
-    position: absolute;
+    /* position: absolute; */
+   
+    position: fixed;
+    top: 20px; /* Adjust as needed */
+    left: 350px; /* Adjust as needed */
+    z-index: 999;
 }
+
+    #create-group-container button[type="button"] {
+    margin-bottom: 20px; /* Adjust as needed */
+  }
+  
+  #create-group-container #group-submit {
+    margin-bottom: 20px; /* Adjust as needed */
+  }
 
 .div1 {
     width: 100%;
@@ -122,14 +208,7 @@ button {
     border-bottom: 2px solid black;
 }
 
-.create-group-container > input {
-    width: 400px;
-    height: 30px;
-    margin-left: 30px;
-    margin-top: 20px;
-    font-size: 20px;
-    padding: 3px;
-}
+
 
 #group-submit {
     background-color: #F47D3B;
