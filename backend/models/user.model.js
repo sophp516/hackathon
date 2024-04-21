@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
         },
         coordinates: {
             type: [Number],
-            default: [-1, -1]
+            default: [500, 300]
         }
     }
 }, {timestamps: true})
