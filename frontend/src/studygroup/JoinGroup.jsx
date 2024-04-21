@@ -1,22 +1,23 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
+import './StudyBase.css'
 import useGetGroup from '../hooks/useGetGroup';
 
 const JoinGroup = (props) => {
 
     const { groups } = useGetGroup();
     const handleStatus = (groupId) => {
-        props.handleStatus(groupId)
+        props.joinGroupsubmit(groupId)
     }
 
     return (
-        <div className='main-container'>
+        <div className='join-root-container'>
             {groups.map((group)=> ( 
                 <div className='group-container' key={group._id}>
-                    <div>
+                    <div >
                         <h2>{group.groupName}</h2>
-                        <img src={group.groupImage}/>
+                        <img src={group.image}/>
                         <p>{group.description}</p>
                     </div>
 
