@@ -1,11 +1,15 @@
 import useLogout from "../hooks/useLogout.js";
 import Timer from "../timer/Timer.jsx";
 import TaskManager from "../taskmanager/App.jsx";
-//import useGetAvatar from "../hooks/useGetAvatar.js";
+// import useGetAvatar from "../hooks/useGetAvatar.js";
+import Navbar from "../navbar/navbar.jsx";
 import './Homepage.css'
 
 const Homepage = () => {
     const { logout } = useLogout();
+    //const { url } = useGetAvatar();
+    
+    
 
     const LogoutButton = () => {
         return (
@@ -16,7 +20,7 @@ const Homepage = () => {
     }
     return (
         <div className="homepage-main-container">
-            /* Nav bar here */
+            <Navbar className="nav-bar"/>
             <div className="homepage-content">
                 <div className="left-column">
                     <h1 className="homepage-header">

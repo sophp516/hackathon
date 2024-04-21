@@ -1,5 +1,12 @@
 /* Homepage.css */
 
+
+/* .main-main-main {
+ width: 100vw;
+ height: 100vh;
+ display: flex;
+} */
+
 /* Text animation */
 @keyframes floatUpDown {
     0% {
@@ -81,8 +88,7 @@ body {
 
 .homepage-main-container {
     display: flex;
-    padding: 0 20px; /* Add space around the content */
-
+    padding: 0 20px 0 0; /* Add space around the content */
 }
 
 .homepage-content {
