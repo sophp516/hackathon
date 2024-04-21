@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     group: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Group",
-        // default: ''
+
     },
     studyTime: {
         type: Number,
@@ -31,8 +31,8 @@ const userSchema = new mongoose.Schema({
     },
     task: [
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Task"
+            type: String,
+            default: []
         }
     ],
     coordinates: {
