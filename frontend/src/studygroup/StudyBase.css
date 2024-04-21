@@ -10,12 +10,16 @@
 }
 .create-group-container{
     z-index: 999;
-    position: absolute;
-    top: 50%; 
-    left: 50%;
     background-color: aliceblue;
     display: flex;
     flex-direction: column;
+    width: 700px;
+    height: 700px;
+    margin: auto;
+    margin-top: 100px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 13px;
 }
 
 .group-container {
@@ -65,8 +69,10 @@ button {
 }
 
 #uploaded-img{
-    max-width: 100%;
+    max-width: 60%;
     height: 200px;
+    margin: auto;
+    border: 2px solid black;
 }
 
 
@@ -96,4 +102,59 @@ button {
     position: absolute;
     right: 20px;
     bottom: 20px;
+}
+
+#create-group-small {
+    width: 10px;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    background-color: inherit;
+}
+
+.button-holder {
+    width: 100%;
+    background-color: #FFBC23;
+    padding: 5px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 2px solid black;
+}
+
+.create-group-container > input {
+    width: 400px;
+    height: 30px;
+    margin-left: 30px;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 3px;
+}
+
+#group-submit {
+    background-color: #F47D3B;
+    border: 2px solid black;
+    width: 200px;
+    height: 40px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+#textarea {
+    height: 100px;
+}
+
+#map {
+    max-width: 100%;
+    max-height: 60%;
+    width: 700px;;
+    position: absolute;
+    margin: 0%; 
+    top: 20%;
+    right: 20%;
+    align-items: center;
+}
+
+.studyspace-big-div {
+    width: 100%;
 }

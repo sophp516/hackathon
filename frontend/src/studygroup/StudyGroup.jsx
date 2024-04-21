@@ -13,6 +13,7 @@ const StudyGroup = (props) => {
     const { members } = useGetMembers(groupId);
     const { leaveGroup } = useLeaveGroup();
     const [leave, setleave] = useState(false);
+
     const [coordinates, setCoordinates] = useState({
         x: '',
         y: '',
@@ -64,6 +65,7 @@ const StudyGroup = (props) => {
     }, [select, users, selectedName]); 
 
     console.log(members)
+
     const navigateTo = useNavigate();
 
     useEffect(() => {
@@ -94,6 +96,11 @@ const StudyGroup = (props) => {
 
     return (
 
+        <div>
+            <img src="src/assets/map.png" id="map"/>
+        <div className="studyspace-big-div">
+            <button onClick={handleLeaveGroup} id="create-group" >leave</button>
+
         <div className='group-container'>
             <button onClick={handleLeaveGroup}>leave</button>
 
@@ -117,6 +124,8 @@ const StudyGroup = (props) => {
             <Leaderboard 
                 members={members} 
                 />
+          
+        </div>
         </div>
     );
 };
