@@ -85,25 +85,41 @@
 body {
     background-color: #FFFAE7;
 }
-
+.home-root{
+   margin: 0;
+   padding: 0;
+   width: 100vh;
+   max-width: 100%;
+}
 .homepage-main-container {
     display: flex;
-    padding: 0 20px 0 0; /*Add space around the content*/
-    margin: 0;
-    width: 100vh;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0 20px 0 0; /* Add space around the content */
 }
 
 .homepage-content {
     display: flex;
+    flex-direction: row;
     flex-grow: 1;
 }
+.nav-bar-container{
+    left: 0;
+    height: 100vh;
+}
 
-.left-column {
+.left-column-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.left-column-text{
     flex: 1;
     display: flex;
     flex-direction: column;
     max-width: 350px; /* Adjust */
-    max-height: vh;
+    max-height: 100vh;
     margin-right: 40px; /* Add space on the right side */
 }
 
@@ -111,14 +127,23 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    max-width: 250px; /*Adjust * /
-    margin-left: 40px; /* Add space on the left side */
+    max-width: 250px;
+    width: 40%;
+    margin-left: 200px;
+    align-items: center;
+    margin-top: 50px
+
 }
 
-.timer-component {
-    margin-top: 40px;
-    padding-top: 40px; /* Add space on the top  */
-    width: 100px; /* Adjust the width as needed */
+.timer-container {
+    margin-top: 70px;
+    margin-left: 100px;
+    width: 30px; /* Adjust the width as needed */
+    margin-bottom: 30px;
+    
+}
+.task-container{
+    margin-left: 100px;
 }
 
 /* Style for the parent container */
@@ -160,4 +185,73 @@ body {
 .homepage-button:hover {
     color: white;
 }
+.avatar-container-home{
+    border-radius: 8px;
+    border: 1.5px solid black;
+    border-bottom: 2px solid rgb(1, 1, 1);
+    filter: drop-shadow(6px 6px 0px #000);
+    background: #FFFEFD;
+    width:350px;
+    height: 250px;
+    flex-shrink: 0;
+    margin-top: -10px;
+    align-items: center;
+}
+.avatar-header{
+    border-radius: 8px 8px 0px 0px;
+    border: 1.5px solid black;
+    background: #2BACE8;
+    width: 348px;
+    height: 25px;
+    margin-top: -1px;
+    font-family: 'Street-Plain';
+    font-size: 14px;
+    text-align: center;
+}
+.avatar-images{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+#avatar-img{
+    width: 40%;
+    align-items: center;
+    margin: auto;
+    margin-top: 0px;
+    padding: 10px;
+}
+.left-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
 
+.study-info {
+    margin-left: 10px;
+    margin-bottom: 10 px;
+
+}
+.study-group-container{
+    margin: auto;
+    margin-top: 20px;
+    align-items: center;
+    border-radius: 8px;
+    border: 1.5px solid black;
+    border-bottom: 2px solid rgb(1, 1, 1);
+    filter: drop-shadow(6px 6px 0px #000);
+    background: #FFFEFD;
+    width: 350px;
+    height: 400px;
+}
+.sg-header{
+    border-radius: 8px 8px 0px 0px;
+    border-bottom: 1.5px solid #000;
+    background: #F47D3B;
+    font-family: 'Street-Plain';
+    font-size: 14px;
+    text-align: center;
+}
+#study-image{
+    width: 100%;
+}

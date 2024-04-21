@@ -44,9 +44,10 @@ const App = () => {
   };  
 
   return (
+    <div className='task-root'>
     <div className="container">
       <header>
-        <h1>task list</h1>
+        <h1>Task list</h1>
       </header>
       <div className="input-section">
         <input type="text" placeholder="What's your next task?" value={input} onChange={e => setInput(e.target.value)} />
@@ -58,10 +59,10 @@ const App = () => {
       <table>
         <thead>
           <tr>
-            <th>task</th>
-            <th>due date</th>
-            <th>status</th>
-            <th>actions</th>
+            <th>Task</th>
+            <th>Due date</th>
+            <th>Status</th>
+            <th id='action'>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -71,13 +72,20 @@ const App = () => {
               <td>{task.dueDate}</td>
               <td>{task.completed ? 'Completed' : 'Pending'}</td>
               <td>
-                <button onClick={() => toggleCompletion(task.id)}>toggle</button>
-                <button onClick={() => deleteTask(task.id)}>delete</button>
+                <div className='action-container'>
+                  <div className='complete-btn'>
+                    <button onClick={() => toggleCompletion(task.id)}><img src='/assets/check.png' id='btn1'/></button>
+                  </div>
+                  <div className='delete-btn'>
+                   <button onClick={() => deleteTask(task.id)}><img src='/assets/x.png' id='btn2'/></button>
+                  </div>
+                </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 }

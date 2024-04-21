@@ -107,6 +107,7 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    box-shadow: 6px 6px 0px 0px #000;
 }
 
 .group-details > h2 {

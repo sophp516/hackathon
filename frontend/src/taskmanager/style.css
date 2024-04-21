@@ -11,15 +11,18 @@
     font-style: normal;
 }
 
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Street - Plain';
     /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif */
-}
+/* } */ */
 
-body{
+.task-root{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     position: relative;
     height: 100vh;
     display: flex;
@@ -67,6 +70,8 @@ body{
     letter-spacing: 5px;
     word-spacing: 10px;
     margin-bottom: 30px;
+    font-family: 'Street - Plain';
+
 }
 
 header h1 {
@@ -115,6 +120,8 @@ header.input-section {
     flex-grow: 1;  /* Allows the input to grow and fill available space */
     margin-right: 10px;  /* Adds spacing between the input boxes and the button */
     padding-left: 10px; /* Add padding to the left to shift the text to the right */
+    font-family: 'Street - Plain';
+
 }
 
 .input-section input[type="date"] {
@@ -123,6 +130,7 @@ header.input-section {
     margin-right: 10px;
     color: #a2a2a2; /* Set the color to red or any color you prefer */
     padding-left: 10px; /* Add padding to the left to shift the text to the right */
+    font-family: 'Street - Plain';
 }
 
 .input-section button {
@@ -137,6 +145,7 @@ header.input-section {
 
     border-radius: 10px;
     border: 1.5px solid rgb(1, 1, 1);
+    font-family: 'Street - Plain';
 }
 
 .input-section button:hover {
@@ -185,10 +194,12 @@ header.input-section {
     justify-content: end;
     width: 100%;
     height: 100%;
+    font-family: 'Street - Plain';
 }
 
 .todo-actions button:not(:last-child){
     margin-right: 10px;
+    font-family: 'Street - Plain';
 }
 
 
@@ -202,6 +213,7 @@ header.input-section {
     transition: background-color 0.3s;
     border-radius: 10px;
     border: 2px solid rgb(1, 1, 1);
+    font-family: 'Street - Plain';
 }
 
 .todos-list .todo-item .todo-actions button:hover {
@@ -258,4 +270,55 @@ td:last-child, th:last-child {
         margin-right: 10px; /* Smaller margins for smaller screens */
         padding: 5px 10px; /* Smaller padding for compact layout */
     }
+}
+#action{
+    margin-left: 200px;
+}
+.action-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensures vertical centering of buttons */
+    gap: 5px; /* Adds space between buttons */
+}
+
+.complete-btn,
+.delete-btn {
+    border: none; /* Removes the border for a cleaner look */
+    border-radius: 20px; /* Makes the buttons more rounded */
+    padding: 0px 0px; /* Adjusts the padding for a better proportion */
+    color: white; /* Text color */
+    font-weight: bold; /* Makes the text bold */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s; /* Smooth background-color transition */
+}
+
+.complete-btn {
+    background-color: #4CAF50; /* A nicer shade of green */
+}
+
+.complete-btn:hover {
+    background-color: #45a049; /* Darkens the button on hover for feedback */
+}
+
+.delete-btn {
+    background-color: #f44336; /* A nicer shade of red */
+}
+
+.delete-btn:hover {
+    background-color: #d73833; /* Darkens the button on hover for feedback */
+}
+
+/* Adjustments for button images */
+#btn1 {
+    display: block; /* Allows width and height to take effect */
+    margin: auto; /* Centers the image in the button */
+    width: auto; /* Keeps image aspect ratio */
+    height: 14px; /* Sets a consistent height for the images */
+}
+
+#btn2{
+    display: block; /* Allows width and height to take effect */
+    margin: auto; /* Centers the image in the button */
+    width: auto; /* Keeps image aspect ratio */
+    height: 16px; /* Sets a consistent height for the images */
 }
