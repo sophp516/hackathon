@@ -34,7 +34,9 @@ const StudyGroup = (props) => {
 
     return (
         <div>
+
             <button onClick={handleLeaveGroup} id="create-group" >leave</button>
+
             
            
             <Leaderboard 
