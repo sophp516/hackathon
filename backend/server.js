@@ -7,7 +7,7 @@ import authRoutes from "./routes/auth.routes.js";
 import groupRoutes from "./routes/group.routes.js"
 
 const app = express();
-const PORT = process.env.PORT || 5174;
+const PORT = process.env.PORT || 4000;
 
 dotenv.config();
 

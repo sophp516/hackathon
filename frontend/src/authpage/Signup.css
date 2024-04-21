@@ -1,0 +1,150 @@
+/* Base layout */
+.signup-root-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #FFFAE7; /* Adjust the background color to match your design */
+  }
+  
+  /* Left container for the avatar image */
+  .signup-left-container {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    width: 330px;
+    height: 548px;
+    border-radius: 8px;
+    border: 1px solid #111;
+    background: #2BACE8;
+    box-shadow: 6px 6px 0px 0px #000;
+  }
+
+#guy-img{
+    width: 180px;
+    height: 226px;
+    flex-shrink: 0;
+  }
+
+  /* Right container for the form */
+.signup {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 390.233px;
+    height: 546.224px;
+    border-radius: 8px;
+    border: 1px solid #111;
+    background: #FFFEFD;
+    box-shadow: 6px 6px 0px 0px #000;
+
+  }
+  
+  h1 {
+    color: #000;
+    font-family: "Street - Plain";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;;
+    width: 362.799px;
+    height: 26.693px;
+    flex-shrink: 0;
+    margin-bottom: 8px;
+  }
+  
+p{
+    color: #000;
+    font-family: "Street - Plain";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: normal;
+    width: 283px;
+    height: 27px;
+    flex-shrink: 0;
+  }
+  
+  /* Form container */
+  .signup-form-container {
+    width: 100%;
+    align-items: center;
+    margin-top: 20px;
+    
+  }
+  
+  .label-container {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .label-container input {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+  
+  /* Placeholder styles */
+  ::placeholder {
+    color: #888888;
+  }
+  
+  /* Button styles */
+  button {
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  /* Login button */
+  #login-button {
+    border-radius: 8px;
+    background: #239299; /* Teal color for the button */
+    color: white;
+  }
+
+  #login-button:hover{
+    background: #1E7D83;
+    border-radius: 8px;
+    color: white;
+  }
+  /* Spinner icon from PrimeReact */
+  .pi-spin {
+    animation: spin 1s infinite linear;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Signup link container */
+  .buttonContainer {
+    margin-top: 24px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Signup link button */
+  #signup-button-v2 {
+    background: none;
+    color: #78E1DB; /* Teal color to match the login button */
+    border: none;
+    text-decoration: underline;
+  }
+  
+  #signup-button-v2:hover {
+    text-decoration: none;
+  }
+  
