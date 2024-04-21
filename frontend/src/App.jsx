@@ -20,7 +20,6 @@ const App = () => {
   return (
 
     <Router>
-      {authUser ?  <Navbar /> :  <div></div>}
         
       <div>
        <Routes>
