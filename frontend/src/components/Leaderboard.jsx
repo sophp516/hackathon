@@ -3,11 +3,11 @@ import React, { useState , useEffect} from 'react';
 import MockUsers from './mockUsers';
 import './Leaderboard.css';
 
-const Leaderboard = () => {
+const Leaderboard = (props) => {
     const [leaderboard, setLeaderboard] = useState([]);
     
     useEffect(() => {
-        const sortedUsers = MockUsers.sort((a, b) => b.studyTime - a.studyTime);
+        const sortedUsers = props.members.sort((a, b) => b.studyTime - a.studyTime);
         const extractInfo = sortedUsers.map((user,index) => ({
             name: user.username,
             time: user.studyTime,
@@ -15,7 +15,7 @@ const Leaderboard = () => {
             rank: index + 1
         }));
         setLeaderboard(extractInfo);
-    }, [MockUsers]); //depends on user data
+    }, [props.members]); //depends on user data
 
     return(
         <div className='leaderboard-container'>

@@ -15,6 +15,10 @@ const groupSchema = new mongoose.Schema({
     description: {
         type: String,
     },
+    groupImage: {
+        type: String,
+        default: "",
+    },
 }, {timestamps: true})
 
 const Group = mongoose.model("Group", groupSchema);

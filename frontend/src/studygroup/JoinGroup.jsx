@@ -2,28 +2,26 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import './StudyBase.css'
-import PropTypes from 'prop-types'; 
+import useGetGroup from '../hooks/useGetGroup';
 
 const JoinGroup = (props) => {
 
-    const [groups, setGroups] = useState([]);
+    const { groups } = useGetGroup();
+    const handleStatus = (groupId) => {
+        props.joinGroupsubmit(groupId)
+    }
 
-    useEffect(() => {
-        setGroups(props.groups);
-    }, [props.groups]); // Add props.groups as a dependency
-
-    console.log(props.joinedStatus);
     return (
         <div className='join-root-container'>
             {groups.map((group)=> ( 
-                <div className='group-container' key={group.id}>
+                <div className='group-container' key={group._id}>
                     <div >
-                        <h2>{group.name}</h2>
+                        <h2>{group.groupName}</h2>
                         <img src={group.image}/>
                         <p>{group.description}</p>
                     </div>
 
-                    <button type='button' onClick={props.handleStatus}>Enter group</button>
+                    <button type='button' onClick={() => handleStatus(group._id)}>Enter group</button>
                 </div>
 
 
