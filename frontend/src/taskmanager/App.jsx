@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import useAddTask from '../hooks/useAddTask';

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Timer.css'; // Ensure the CSS is properly imported
 import useUpdateTime from '../hooks/useUpdateTime';
 import useGetTime from '../hooks/useGetTime';
+import './Timer.css';
 
 const Timer = () => {
     const [counter, setCounter] = useState(null);
@@ -88,7 +89,7 @@ const Timer = () => {
 
     return (
         <div className="timer-container">
-            <h1 className="heading">study time</h1>
+            <h1 className="heading">Study Timer</h1>
             <div className="timer">
                 <div className="sub_timer">
                     <h1 className="digit">{String(hours).padStart(2, '0')}</h1>
