@@ -1,4 +1,6 @@
 import useLogout from "../hooks/useLogout.js";
+import Timer from "../timer/Timer.jsx";
+import TaskManager from "../taskmanager/App.jsx";
 
 const Homepage = () => {
     const { logout } = useLogout();
@@ -13,6 +15,8 @@ const Homepage = () => {
     return (
         <div>
             <p>home</p>
+            <Timer />
+            <TaskManager />
             <LogoutButton />
         </div>
 
