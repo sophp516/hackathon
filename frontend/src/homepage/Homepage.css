@@ -1,5 +1,156 @@
-.main-main-main {
+/* Homepage.css */
+
+
+/* .main-main-main {
  width: 100vw;
  height: 100vh;
  display: flex;
+} */
+
+/* Text animation */
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Move up */
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
+
+/* Apply animation to each letter */
+.homepage-header span {
+    display: inline-block; /* Ensure each letter is treated as a separate element */
+    animation: floatUpDown 1s ease-in-out 1; /* Adjust duration and timing as needed */
+}
+
+/* Stagger animation with animation-delay */
+.homepage-header span:nth-child(1) {
+    animation-delay: 0s; /* Delay animation for the first letter */
+}
+.homepage-header span:nth-child(2) {
+    animation-delay: 0.1s; /* Delay animation for the second letter */
+}
+.homepage-header span:nth-child(3) {
+    animation-delay: 0.3s; 
+}
+.homepage-header span:nth-child(4) {
+    animation-delay: 0.4s; 
+}
+.homepage-header span:nth-child(5) {
+    animation-delay: 0.5s; 
+}
+.homepage-header span:nth-child(6) {
+    animation-delay: 0.6s;
+}
+.homepage-header span:nth-child(7) {
+    animation-delay: 0.7s; 
+    margin-right: 10px; /* Add space */
+}
+.homepage-header span:nth-child(8) {
+    animation-delay: 0.8s; 
+}
+.homepage-header span:nth-child(9) {
+    animation-delay: 0.9s;
+}
+.homepage-header span:nth-child(10) {
+    animation-delay: 1.0s; 
+}
+.homepage-header span:nth-child(11) {
+    animation-delay: 1.1s;
+}
+.homepage-header span:nth-child(12) {
+    animation-delay: 1.2s;
+}
+.homepage-header span:nth-child(13) {
+    animation-delay: 1.3s;
+}
+
+/* Stop animation after the last letter */
+.homepage-header span:last-child {
+    animation-fill-mode: forwards; /* Retain styles after animation */
+}
+
+/* Font face */
+@font-face {
+    font-family: 'Street - Plain';
+    src: url('../fonts/street__-webfont.woff') format('woff'),
+         url('../fonts/street__-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #FFFAE7;
+}
+
+.homepage-main-container {
+    display: flex;
+    padding: 0 20px 0 0; /* Add space around the content */
+}
+
+.homepage-content {
+    display: flex;
+    flex-grow: 1;
+}
+
+.left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px; /* Add space on the right side */
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px; /* Add space on the left side */
+}
+
+.timer-component {
+    width: 200px; /* Adjust the width as needed */
+}
+
+/* Style for the parent container */
+.homepage-container {
+    background-color: #FFFEFD;
+}
+
+/* Style for the header element */
+.homepage-header {
+    margin-top: 30px; 
+    color: #393D3F;
+    font-family: "Street - Plain",sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    /* font-weight: 400; */
+    font-weight: bold;
+    line-height: normal;
+    margin-bottom: 20px; 
+    
+    /* for whole-text animation */
+    /* animation: floatUpDown 3s ease-in-out infinite; Adjust duration and timing as needed */
+}
+
+/* Style for the paragraph element */
+.homepage-text {
+    color: #393D3F;
+    font-family: "Street - Plain",sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Style for the buttons */
+.homepage-button {
+    cursor: zoom-in; /*cursor enlarge */
+}
+
+.homepage-button:hover {
+    color: white;
+}
+
