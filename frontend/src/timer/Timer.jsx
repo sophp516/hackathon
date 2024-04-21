@@ -90,7 +90,7 @@ const Timer = () => {
 
     return (
         <div className="timer-container">
-            <h1 className="heading">study timer</h1>
+            <h1 className="heading">Study timer</h1>
             <div className="timer">
                 <div className="sub_timer">
                     <h1 className="digit">{String(hours).padStart(2, '0')}</h1>
@@ -108,10 +108,10 @@ const Timer = () => {
 
             <div className="button">
                 <div className="sub_button">
-                    <button id="startButton" onClick={startTimer}>start</button>
+                    <button id="startButton" onClick={startTimer}>Start</button>
                 </div>
                 <div className="sub_button">
-                    <button id="stopButton" onClick={stopTimer}>stop</button>
+                    <button id="stopButton" onClick={stopTimer}>Stop</button>
                 </div>
             </div>
         </div>
