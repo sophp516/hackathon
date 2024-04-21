@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;800;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+body{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 400px;
+    min-width: 640px;
+    max-width: 1000px;
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 6px 6px 0px 0px #000;
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
+    border-radius: 10px;
+    border: 3px solid rgb(1, 1, 1);
+    padding: 0px 0px 0px 0px; /* No padding-top */
+}
+
+.container header {
+    width: 100%;
+    background-color: rgba(1,86,75,1);
+    box-sizing: border-box;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom: 3px solid rgb(1, 1, 1);
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: #f56385;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.alert-message{
+    width: 100%;
+    transition: all 0.3s ease;
+    transform: scale(0.9);
+}
+
+.alert-message.show{
+    display: block;
+    transform: scale(1);
+}
+
+.alert-message.hide{
+    display: none;
+}
+
+.input-section {
+    display: flex;  /* Establishes a flex container */
+    flex-direction: row;  /* Aligns children in a horizontal row */
+    justify-content: space-between;  /* Distributes extra space between and around elements */
+    align-items: center;  /* Vertically centers the items in the line */
+    width: 100%;  /* Takes full width of its parent container */
+    padding: 10px;  /* Optional padding for spacing inside the section */
+}
+
+header.input-section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.input-section input {
+    height: 30px;
+    flex-grow: 1;  /* Allows the input to grow and fill available space */
+    margin-right: 10px;  /* Adds spacing between the input boxes and the button */
+}
+
+.input-section button {
+    width: 100px;  /* Sets a specific width for the button */
+    padding: 8px 16px;  /* Adjust padding if needed for text alignment */
+    background-color: #f56385;  /* Example background color */
+    font-size: 15px;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.input-section button:hover {
+    background-color: #ba782d;  /* Darker shade on hover */
+}
+
+
+.todos-filter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+
+.todos-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100%;
+    max-height: 54vh;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.todos-list .todo-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    border-bottom: 1px solid rgba(184,40,76,1);
+}
+
+.todo-item p{
+    margin-right: 10px;
+}
+
+.todo-item .todo-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    height: 100%;
+}
+
+.todo-actions button:not(:last-child){
+    margin-right: 10px;
+}
+
+.row-container {
+    display: flex;
+    justify-content: space-between; /* Spreads items evenly */
+    width: 100%; /* Full width of its parent container */
+    padding: 10px; /* Optional padding for better spacing around items */
+}
+
+.column {
+    margin-right: 20px; /* Adds space to the right of each column */
+    flex-grow: 1; /* Allows each column to grow as needed */
+}
+
+.column:last-child {
+    margin-right: 0; /* Ensures the last column does not have extra space on the right */
+}
+
+th, td {
+    padding: 10px 20px; /* Adds vertical and horizontal padding */
+    text-align: left; /* Aligns text to the left; adjust as needed */
+}
+
+th, td {
+    padding-right: 30px; /* Increase right padding to create space between columns */
+}
+
+td:last-child, th:last-child {
+    padding-right: 10px; /* Less padding on the last cell if it's too much */
+}
+
+.theme-switcher{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 530px) {
+    .container {
+        margin: 0 20px;
+        max-width: 96%;
+        min-width: 96%;
+    }
+}
+
+@media (max-width: 768px) {
+    .column, th, td {
+        margin-right: 10px; /* Smaller margins for smaller screens */
+        padding: 5px 10px; /* Smaller padding for compact layout */
+    }
+}

@@ -7,9 +7,6 @@ import './Homepage.css'
 
 const Homepage = () => {
     const { logout } = useLogout();
-    //const { url } = useGetAvatar();
-    
-    
 
     const LogoutButton = () => {
         return (
@@ -20,6 +17,8 @@ const Homepage = () => {
     }
     return (
         <div className="homepage-main-container">
+
+
             <Navbar className="nav-bar"/>
             <div className="homepage-content">
                 <div className="left-column">
