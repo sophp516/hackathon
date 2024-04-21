@@ -22,15 +22,16 @@
     max-width: 350px;
     background-color: #A7272D;
     margin-right: 60px;
+    border-right: 2.5px solid black;
 }
 
 .studyMates {
-    font-size: 40px;
+    font-size: 35px;
     text-align: center;
     font-weight: 200;
     color: #FFFAE7;
-    padding-top: 30px;
-    padding-bottom: 70px;
+    padding-top: 25px;
+    padding-bottom: 60px;
     border-bottom: 2px solid black;
     font-family: "Retosta Regular",sans-serif;
 }
@@ -39,13 +40,21 @@
     color: #FFFAE7;
     border: none;
     font-size: 20px;
-    padding-left: 60px;
-    padding-top: 20px;
+    padding-left: 10px;
+    margin-left: 30px;
+    padding-top: 30px;
     font-family: "Street - Plain",sans-serif;
+    font-weight: 200;
 }
 
+.nav-icon {
+    width: 20px; /* Adjust the width of the icon as needed */
+    height: 15px;
+    margin-right: 30px; /* Add space between the icon and the text */
+  }
+
 .first {
-    padding-top: 30px;
+    padding-top: 40px;
     font-family: "Street - Plain",sans-serif;
 }
 
@@ -55,4 +64,8 @@
     /* border-right: 2px solid black; */
 }
 
+.logout-button {
+    font-family: "Street - Plain",sans-serif;
+    margin-top: 440px;
+}
 

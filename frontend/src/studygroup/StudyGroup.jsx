@@ -125,7 +125,7 @@ const StudyGroup = (props) => {
           
         </div>
         </div>
-       
+        
     );
 };
 
