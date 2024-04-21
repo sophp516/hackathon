@@ -47,7 +47,7 @@ const App = () => {
     <div className='task-root'>
     <div className="container">
       <header>
-        <h1>task list</h1>
+        <h1>Task list</h1>
       </header>
       <div className="input-section">
         <input type="text" placeholder="What's your next task?" value={input} onChange={e => setInput(e.target.value)} />
@@ -59,10 +59,10 @@ const App = () => {
       <table>
         <thead>
           <tr>
-            <th>task</th>
-            <th>due date</th>
-            <th>status</th>
-            <th id='action'>actions</th>
+            <th>Task</th>
+            <th>Due date</th>
+            <th>Status</th>
+            <th id='action'>Actions</th>
           </tr>
         </thead>
         <tbody>

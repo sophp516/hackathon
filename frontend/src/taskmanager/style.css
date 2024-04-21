@@ -70,6 +70,8 @@
     letter-spacing: 5px;
     word-spacing: 10px;
     margin-bottom: 30px;
+    font-family: 'Street - Plain';
+
 }
 
 header h1 {
@@ -118,6 +120,8 @@ header.input-section {
     flex-grow: 1;  /* Allows the input to grow and fill available space */
     margin-right: 10px;  /* Adds spacing between the input boxes and the button */
     padding-left: 10px; /* Add padding to the left to shift the text to the right */
+    font-family: 'Street - Plain';
+
 }
 
 .input-section input[type="date"] {
@@ -126,6 +130,7 @@ header.input-section {
     margin-right: 10px;
     color: #a2a2a2; /* Set the color to red or any color you prefer */
     padding-left: 10px; /* Add padding to the left to shift the text to the right */
+    font-family: 'Street - Plain';
 }
 
 .input-section button {
@@ -140,6 +145,7 @@ header.input-section {
 
     border-radius: 10px;
     border: 1.5px solid rgb(1, 1, 1);
+    font-family: 'Street - Plain';
 }
 
 .input-section button:hover {
@@ -188,10 +194,12 @@ header.input-section {
     justify-content: end;
     width: 100%;
     height: 100%;
+    font-family: 'Street - Plain';
 }
 
 .todo-actions button:not(:last-child){
     margin-right: 10px;
+    font-family: 'Street - Plain';
 }
 
 
@@ -205,6 +213,7 @@ header.input-section {
     transition: background-color 0.3s;
     border-radius: 10px;
     border: 2px solid rgb(1, 1, 1);
+    font-family: 'Street - Plain';
 }
 
 .todos-list .todo-item .todo-actions button:hover {
