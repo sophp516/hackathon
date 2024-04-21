@@ -1,10 +1,16 @@
 import useLogout from "../hooks/useLogout.js";
 import Timer from "../timer/Timer.jsx";
 import TaskManager from "../taskmanager/App.jsx";
-import './Homepage.css';
+import useGetAvatar from "../hooks/useGetAvatar.js";
+import './Homepage.css'
 
 const Homepage = () => {
     const { logout } = useLogout();
+    const { url } = useGetAvatar();
+    const parts = url.url.toString().split("/");
+    const fileName = parts[parts.length - 1];
+    const newUrl = `/src/assets/${fileName}`;
+    console.log(url)
 
     const LogoutButton = () => {
         return (
@@ -14,8 +20,8 @@ const Homepage = () => {
         )
     }
     return (
-        <div>
-            <p>home</p>
+        <div className="homepage-main-container">
+            <img src={newUrl} />
             <Timer />
             <TaskManager />
             <LogoutButton />
