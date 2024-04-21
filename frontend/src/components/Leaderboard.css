@@ -43,3 +43,13 @@
     color: black;
     
 }
+
+.rank-css {
+    text-align: center;
+    background-color: yellow;
+    padding-right: 3px;
+    padding-left: 3px;
+    border-radius: 10px;
+    margin-right: 5px;
+    border: 1px solid black;
+}
