@@ -22,6 +22,7 @@ export const signup = async (req, res) => {
             username,
             email,
             password: hashedPassword,
+            avatar: "frontend/src/assets/default.png"
         })
 
         if (newUser) {
@@ -32,6 +33,7 @@ export const signup = async (req, res) => {
                 _id: newUser._id,
                 email: newUser.email,
                 username: newUser.username,
+                avatar: "frontend/src/assets/default.png"
             })
         }
     } catch(err) {
