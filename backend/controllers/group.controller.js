@@ -3,8 +3,8 @@ import User from "../models/user.model.js";
 
 export const creategroup = async (req, res) => {
     try {
-        const { groupName } = req.body;
-        const group = await User.findOne({groupName});
+        const { groupName, description, groupImage } = req.body;
+        const group = await Group.findOne({groupName});
         if (group) {
             return res.status(400).json({error: "Group name already exists"})
         }
@@ -13,14 +13,27 @@ export const creategroup = async (req, res) => {
         const newGroup = new Group({
             groupName,
             members: [createrId],
+            description,
+            groupImage
         })
 
-        await newGroup.populate('members').execPopulate();
+        await newGroup.save();
+
+        const groupId = newGroup._id;
+        const user = await User.findByIdAndUpdate(
+            createrId, // Assuming req.user._id is the creator's user ID
+            { $push: { group: groupId } }, // Add the new group ID to the user's groups array
+            { new: true }
+        );
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
         return res.status(201).json({ message: "Group created successfully" });
 
 
     } catch(err) {
-        console.error("Error creating group:", err);
+        console.error("Error creating group:", err.message);
         return res.status(500).json({ error: "Internal Server Error" });
     }
 }
@@ -30,13 +43,17 @@ export const joingroup = async (req, res) => {
         const { groupId } = req.body;
         const userId = req.user._id
     
-        const group = await User.findOne({ _id: groupId });
+        const group = await Group.findOne({ _id: groupId });
 
         if (!group) {
             return res.status(404).json({ error: 'Group not found' });
         }
+        const user = await User.findByIdAndUpdate(
+            userId,
+            { $set: { group: groupId } },
+            { new: true }
+        );
 
-        const user = await User.findById(userId);
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
@@ -51,3 +68,84 @@ export const joingroup = async (req, res) => {
     }
 
 }
+
+export const getgroups = async (req, res) => {
+    try {
+        const allGroup = await Group.find()
+        if (!allGroup) return res.status(200).json([])
+        res.status(200).json(allGroup)
+    } catch(err) {
+        console.log(error)
+        res.status(500).json({error: "Internal server error"})
+    }
+}
+
+export const getmygroup = async (req, res) => {
+    try {
+        const userId = req.user._id
+        const user = await User.findOne({ _id: userId });
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        if (!user.group) {
+            return res.status(404).json({ error: 'User is not part of any group' });
+        }
+
+        return res.status(200).json({ group: user.group });
+    } catch (err) {
+        console.error('Error fetching user group:', err);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+}
+
+export const getmembers = async (req, res) => {
+    try {
+        const { groupId } = req.body;
+        const group = await Group.findById(groupId).populate('members');
+
+        if (!group) {
+            return res.status(404).json({ error: 'Group not found' });
+        }
+        const members = group.members;
+        return res.status(200).json({ members });
+    } catch (err) {
+        console.error('Error fetching group members:', err);
+        return res.status(500).json({ error: 'Internal Server Error' });
+    }
+
+}
+
+export const leaveGroup = async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const user = await User.findOne({ _id: userId });
+
+        if (!user || !user.group) {
+            return res.status(404).json({ error: 'User not found or not in a group' });
+        }
+
+        const groupId = user.group;
+        const group = await Group.findOne({ _id: groupId });
+
+        if (!group) {
+            return res.status(404).json({ error: 'Group not found' });
+        }
+
+        // Remove user from group members
+        const updatedMembers = group.members.filter(member => member._id.toString() !== userId.toString());
+        group.members = updatedMembers;
+        console.log(updatedMembers)
+        await group.save();
+
+        // Remove group reference from user
+        user.group = undefined;
+        await user.save();
+
+        res.status(200).json({ message: 'User removed from group' });
+    } catch(err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};

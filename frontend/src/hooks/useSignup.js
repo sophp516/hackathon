@@ -34,17 +34,17 @@ export default useSignup;
 
 function handleInputErrors({email, username, password, confirmPassword}) {
     if(!email || !username || !password || !confirmPassword) {
-
+        console.log("Please fill in all fields")
         return false
     }
 
     if (password !== confirmPassword) {
-
+        console.log("passwords do not match")
         return false
     }
 
     if (password.length < 6) {
-
+        console.log("Password must be at least 6 characters")
         return false
     }
     return true

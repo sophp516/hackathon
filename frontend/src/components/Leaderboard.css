@@ -2,11 +2,10 @@
 .leaderboard-container{
     width: 50vh;
     height: 50vh;
-    background-color: wheat;
+    background-color: #F9F3E7;
 }
 
 .rank-container{
-    background-color:black;
     height: 80%;
 }
 .individuals{
@@ -20,4 +19,7 @@
     flex-direction: row;
     justify-content: space-between;
     margin:10px;
+    text-align: center;
+    color: black;
+    
 }

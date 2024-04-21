@@ -1,0 +1,21 @@
+/* Homepage.css */
+
+body {
+    background-color: #FFFAE7;
+}
+
+/* Style for the parent container */
+.homepage-container {
+    background-color: #FFFEFD;
+}
+
+/* Style for the paragraph element */
+.homepage-paragraph {
+    /* Add your styles here */
+}
+
+/* Style for the logout button */
+.logout-button {
+    /* Add your styles here */
+}
+

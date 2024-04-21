@@ -2,8 +2,9 @@
 .main-container{
     background-color: wheat;
     position: relative;;
-    width: 100vh;
+    width: 100%;
     height: 100vh;
+    
 }
 .create-group-container{
     z-index: 999;
