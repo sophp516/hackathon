@@ -31,8 +31,8 @@ const StudyGroup = (props) => {
         {
             name: "ranom",
             avatar: "./assets/redpanda.png",
-            x: 200,
-            y: 100,
+            x: 500,
+            y: 300,
         }
     ])
 
@@ -101,9 +101,6 @@ const StudyGroup = (props) => {
         <div className="studyspace-big-div">
             <button onClick={handleLeaveGroup} id="create-group" >leave</button>
 
-        <div className='group-container'>
-            <button onClick={handleLeaveGroup}>leave</button>
-
             {users.map((user, index) => (
             user.avatar ? ( // Check if `avatar` property exists
                 <div key={index} className='avatar-container' 
@@ -115,6 +112,7 @@ const StudyGroup = (props) => {
                     />
                     <p>{user.name}</p>
                 </div>
+                
             ) : null // Handle the case where `avatar` is not defined
         ))}
 
@@ -127,6 +125,7 @@ const StudyGroup = (props) => {
           
         </div>
         </div>
+       
     );
 };
 
