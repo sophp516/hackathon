@@ -57,6 +57,9 @@ const StudyBase = () => {
         await joinGroup(groupId)
         setJoinedStatus(true)
     }
+    const handleJoinStatus = () => {
+        setJoinedStatus(!joinedStatus)
+    }
         
 
     const handleSubmit = async () => {
@@ -90,6 +93,7 @@ const StudyBase = () => {
             <div>
                 <StudyGroup 
                     status={myGroup}
+                    handleJoinStatus={handleJoinStatus}
                     />
                 </div>
             :<div>
