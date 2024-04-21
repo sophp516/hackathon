@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import Leaderboard from '../components/Leaderboard';
 import useGetMembers from '../hooks/useGetMembers';
 import useLeaveGroup from '../hooks/useLeaveGroup';
+import "./StudyBase.css"
+
 
 const StudyGroup = (props) => {
     const [groupId, setGroupId] = useState('');
@@ -32,7 +34,9 @@ const StudyGroup = (props) => {
 
     return (
         <div>
-            <button onClick={handleLeaveGroup}>leave</button>
+
+            <button onClick={handleLeaveGroup} id="create-group" >leave</button>
+
             
            
             <Leaderboard 

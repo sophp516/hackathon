@@ -6,6 +6,8 @@ import StudyGroup from './StudyGroup.jsx';
 import './StudyBase.css';
 import useGetMyGroup from '../hooks/useGetMyGroup.js';
 import useCreateGroup from '../hooks/useCreateGroup.js';
+import Navbar from '../navbar/navbar.jsx';
+import useGetGroup from '../hooks/useGetGroup.js';
 
 const StudyBase = () => {
     const [joinedStatus, setJoinedStatus] = useState(false);
@@ -21,6 +23,7 @@ const StudyBase = () => {
     const { joinGroup } = useJoinGroup();
     const { createGroup } = useCreateGroup();
     const { myGroup } = useGetMyGroup();
+
     console.log(myGroup);
 
     useEffect(() => {
@@ -88,16 +91,15 @@ const StudyBase = () => {
 
     return (
         <div className='main-container'>
-            <p>Hello</p>
+            <Navbar />
             {joinedStatus ? 
-            <div>
                 <StudyGroup 
                     status={myGroup}
                     handleJoinStatus={handleJoinStatus}
-                    />
-                </div>
-            :<div>
-                <div>
+                />
+            
+            :<div className="div1">
+                <div className="div2">
                     {/* this will a over lay with z- index of 1 */}
                     {createStatus ? 
                     <div className='create-group-container'> 
@@ -128,7 +130,7 @@ const StudyBase = () => {
                         </div>
                     : 
                     <div>
-                          <button type='button' onClick={()=>setCreateStatus(!createStatus)}>Create Group</button>
+                          <button type='button' id="create-group" onClick={()=>setCreateStatus(!createStatus)}>Create Group</button>
                     </div>}
                 </div>
                  <JoinGroup

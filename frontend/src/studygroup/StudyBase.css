@@ -1,9 +1,11 @@
 
 .main-container{
-    background-color: wheat;
+    background-color: #FFFAE7;
     position: relative;;
-    width: 100%;
+
+    width: 100vw;
     height: 100vh;
+    display: flex;
     
 }
 .create-group-container{
@@ -15,11 +17,82 @@
     display: flex;
     flex-direction: column;
 }
-.join-root-container{
-    margin: auto;
+
+.group-container {
     position: relative;
+    width: 320px;
+    height: 320px;
+    border: 2px solid black;
+    margin: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
+
+.group-details > h2 {
+    padding-bottom: 5px;
+}
+
+#groupImage {
+    max-height: 130px;
+    max-width: 280px;
+    width: 280px;
+    height: 130px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-bottom: 3px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.base-cont {
+    width: 100%;
+    border: 2px solid red;
+}
+
+.join-root-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 100px;
+    justify-content: center;
+}
+
 #uploaded-img{
     max-width: 100%;
     height: 200px;
+}
+
+#create-group {
+    max-width: 300px;
+    background-color: #FFBC23;
+    border: 2px solid black;
+    margin-top: 20px;
+    right: 20px;
+    position: absolute;
+}
+
+.div1 {
+    width: 100%;
+    overflow: scroll;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#enter-group {
+    background-color: #2BACE8;
+    border: 2px solid black;
+    width: 200px;
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
 }
