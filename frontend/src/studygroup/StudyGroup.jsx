@@ -93,6 +93,7 @@ const StudyGroup = (props) => {
     };
 
     return (
+
         <div className='group-container'>
             <button onClick={handleLeaveGroup}>leave</button>
 
