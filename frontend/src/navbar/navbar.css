@@ -1,19 +1,38 @@
+/* Font face for buttons */
+@font-face {
+    font-family: 'Street - Plain';
+    src: url('../fonts/street__-webfont.woff') format('woff'),
+         url('../fonts/street__-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Font face for StudyMates logo */
+@font-face {
+    font-family: 'Retosta Regular';
+    src: url('../fonts/Retosta-webfont.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+}
+
 .navbar {
     display: flex;
     flex-direction: column;
     height: 100vh;
     max-width: 350px;
     background-color: #A7272D;
+    margin-right: 60px;
 }
 
 .studyMates {
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     font-weight: 200;
     color: #FFFAE7;
     padding-top: 30px;
     padding-bottom: 70px;
     border-bottom: 2px solid black;
+    font-family: "Retosta Regular",sans-serif;
 }
 
 .link-nav {
@@ -22,16 +41,18 @@
     font-size: 20px;
     padding-left: 60px;
     padding-top: 20px;
+    font-family: "Street - Plain",sans-serif;
 }
 
 .first {
     padding-top: 30px;
+    font-family: "Street - Plain",sans-serif;
 }
 
 .navlink-container {
     width: 93%;
     height: 100%;
-    border-right: 2px solid black;
+    /* border-right: 2px solid black; */
 }
 
 

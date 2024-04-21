@@ -10,6 +10,7 @@ const Navbar = () => {
       <div className="navlink-container">
       <NavLink  style={{ textDecoration: 'none' }} to="/" ><div className="link-nav first">Home</div></NavLink>
       <NavLink  style={{ textDecoration: 'none' }} to="/studybase" ><div className="link-nav">Study Group</div></NavLink>
+      <NavLink  style={{ textDecoration: 'none' }} to="/studybase" ><div className="link-nav">Study Stats</div></NavLink>
       <NavLink  style={{ textDecoration: 'none' }} to="/" ><div className="link-nav">My Avatar</div></NavLink>
       </div>
 
