@@ -1,14 +1,41 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import MockData from './mockdata';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
+import Leaderboard from '../components/Leaderboard';
+import useGetMembers from '../hooks/useGetMembers';
+import useLeaveGroup from '../hooks/useLeaveGroup';
 
-const StudyGroup = () => {
-    const [joinedStatus, setJoinedStatus] = useState(true);
-    const [groups,setGroups] = useState(MockData.groups);
+const StudyGroup = (props) => {
+    const [groupId, setGroupId] = useState('');
+    const { members } = useGetMembers(groupId);
+    const { leaveGroup } = useLeaveGroup();
+    const [leave, setleave] = useState(false);
+    console.log(members)
+    const navigateTo = useNavigate();
 
+    useEffect(() => {
+        setGroupId(props.status.group);
+    }, [props.status.group]);
 
+    const handleLeaveGroup = async () => {
+        try {
+            await leaveGroup(); 
+            console.log('Left the group successfully.');
+        } catch (error) {
+            console.error('Error leaving group:', error);
+        }
+        navigateTo("/studybase")
+        
+    }
 
+    return (
+        <div>
+            <button onClick={handleLeaveGroup}>leave</button>
+            <Leaderboard 
+                members={members} 
+                />
+        </div>
+    );
+};
 
-
-}
 export default StudyGroup;

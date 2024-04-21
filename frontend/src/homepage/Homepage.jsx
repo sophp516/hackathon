@@ -1,15 +1,21 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
-import Leaderboard from "../components/Leaderboard";
-
+import useLogout from "../hooks/useLogout.js";
 
 const Homepage = () => {
-    return (
-        <div>HOME
+    const { logout } = useLogout();
 
-            <Leaderboard/>
+    const LogoutButton = () => {
+        return (
+            <div>
+                <button onClick={logout}>log out</button>
+            </div>
+        )
+    }
+    return (
+        <div>
+            <p>home</p>
+            <LogoutButton />
         </div>
-        
+
     )
 }
 

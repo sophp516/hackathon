@@ -1,36 +1,44 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import MockData from './mockdata.jsx';
+import React, { useEffect, useState } from 'react';
+import useJoinGroup from '../hooks/useJoinGroup.js';
 import JoinGroup from './JoinGroup.jsx';
+import StudyGroup from './StudyGroup.jsx';
 import './StudyBase.css';
+import useGetMyGroup from '../hooks/useGetMyGroup.js';
+import useCreateGroup from '../hooks/useCreateGroup.js';
 
 const StudyBase = () => {
     const [joinedStatus, setJoinedStatus] = useState(false);
-    const [groups,setGroups] = useState(MockData.groups);
     const [createStatus, setCreateStatus] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
     const [newGroup, setNewGroup] = useState({
-       
-        id: -1,
+    
         name: '',
         image: '',
         description: '',
-        members: []
         
     });
-    
-    const handleStatus = () => {
-        setJoinedStatus(!joinedStatus);
-        setCreateStatus(false);
-    }
+    const { joinGroup } = useJoinGroup();
+    const { createGroup } = useCreateGroup();
+    const { myGroup } = useGetMyGroup();
+    console.log(myGroup);
+
+    useEffect(() => {
+        if (myGroup) {
+            setJoinedStatus(true);
+        }
+    }, [myGroup])
 
    const nameInputs = (e) =>{
         setNewGroup(prevState =>
          ({ ...prevState, name: e.target.value }))
    }
+
    const descriptionInputs = (e) =>{
     setNewGroup(prevState =>
      ({ ...prevState, description: e.target.value }))
     }
+
     const imageInputs = (e) =>{
         const image = e.target.files[0]; 
         if (image){
@@ -45,20 +53,32 @@ const StudyBase = () => {
 
     }
 
-    const handleSubmit = () => {
-        if (newGroup.name=== ''){
-            alert("please enter a valid input")
+    const joinGroupsubmit = async (groupId) => {
+        await joinGroup(groupId)
+        setJoinedStatus(true)
+    }
+        
+
+    const handleSubmit = async () => {
+        console.log("submit")
+        try {
+            if (newGroup.name=== ''){
+                alert("please enter a valid input")
+            }
+        
+            else{
+                await createGroup({groupName: newGroup.name, description: newGroup.description, groupImage: newGroup.image});
+                setNewGroup({
+                    name: '',
+                    image: '',
+                    description: ''
+                });
+                setCreateStatus(!createStatus);
+                setSubmitted(true);
+            }
+        } catch (err) {
+            console.log(err.message)
         }
-        else{
-            setNewGroup({
-                name: '',
-                image: '',
-                description: ''
-            });
-            setCreateStatus(false);
-            setJoinedStatus(true);
-        }
-     setCreateStatus(!createStatus);
     }
 
     console.log("Groups in StudyGroup:",newGroup); 
@@ -67,10 +87,11 @@ const StudyBase = () => {
         <div className='main-container'>
             <p>Hello</p>
             {joinedStatus ? 
-                <div className='joining-page'>
-                    <p> You joined a group</p>
-                    <button type='button' onClick={handleStatus}> join</button>
-                </div> 
+            <div>
+                <StudyGroup 
+                    status={myGroup}
+                    />
+                </div>
             :<div>
                 <div>
                     {/* this will a over lay with z- index of 1 */}
@@ -99,7 +120,7 @@ const StudyBase = () => {
                             value={newGroup.description}
                             onChange={descriptionInputs}
                         />
-                        <button type='button' onClick={()=>setCreateStatus(!createStatus)}>Create</button>
+                        <button type='button' onClick={handleSubmit}>Create</button>
                         </div>
                     : 
                     <div>
@@ -107,9 +128,8 @@ const StudyBase = () => {
                     </div>}
                 </div>
                  <JoinGroup
-                    status={joinedStatus}
-                    groups={groups}
-                    handleStatus={handleStatus}
+                    status={myGroup}
+                    joinGroupsubmit={joinGroupsubmit}
                 />
                 
             </div>}
