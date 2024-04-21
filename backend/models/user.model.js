@@ -31,8 +31,8 @@ const userSchema = new mongoose.Schema({
     },
     task: [
         {
-            type: String,
-            default: []
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Task"
         }
     ],
     coordinates: {

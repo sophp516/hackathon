@@ -1,3 +1,5 @@
+/*Task manager */
+
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import './style.css';
@@ -42,12 +44,13 @@ const App = () => {
   };  
 
   return (
+    <div className='task-root'>
     <div className="container">
       <header>
-        <h1>to do</h1>
+        <h1>task list</h1>
       </header>
       <div className="input-section">
-        <input type="text" placeholder="What do you want to study?" value={input} onChange={e => setInput(e.target.value)} />
+        <input type="text" placeholder="What's your next task?" value={input} onChange={e => setInput(e.target.value)} />
         <input type="date" value={date} onChange={e => setDate(e.target.value)} />
         <button onClick={addTask}>add task</button>
       </div>
@@ -56,10 +59,10 @@ const App = () => {
       <table>
         <thead>
           <tr>
-            <th>Task</th>
-            <th>Due Date</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th>task</th>
+            <th>due date</th>
+            <th>status</th>
+            <th id='action'>actions</th>
           </tr>
         </thead>
         <tbody>
@@ -69,13 +72,20 @@ const App = () => {
               <td>{task.dueDate}</td>
               <td>{task.completed ? 'Completed' : 'Pending'}</td>
               <td>
-                <button onClick={() => toggleCompletion(task.id)}>Toggle</button>
-                <button onClick={() => deleteTask(task.id)}>Delete</button>
+                <div className='action-container'>
+                  <div className='complete-btn'>
+                    <button onClick={() => toggleCompletion(task.id)}><img src='/assets/check.png' id='btn1'/></button>
+                  </div>
+                  <div className='delete-btn'>
+                   <button onClick={() => deleteTask(task.id)}><img src='/assets/x.png' id='btn2'/></button>
+                  </div>
+                </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 }
