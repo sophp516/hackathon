@@ -75,7 +75,7 @@
 
 /* Font face */
 @font-face {
-    font-family: 'Street - Plain';
+    font-family: 'Street-Plain';
     src: url('../fonts/street__-webfont.woff') format('woff'),
          url('../fonts/street__-webfont.woff2') format('woff2');
     font-weight: normal;
@@ -100,6 +100,8 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    max-width: 350px; /* Adjust */
+    max-height: vh;
     margin-right: 40px; /* Add space on the right side */
 }
 
@@ -107,12 +109,14 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    max-width: 250px; /*Adjust * /
     margin-left: 40px; /* Add space on the left side */
 }
 
 .timer-component {
-    margin-top: 40px; /* Add space on the top  */
-    width: 200px; /* Adjust the width as needed */
+    margin-top: 40px;
+    padding-top: 40px; /* Add space on the top  */
+    width: 100px; /* Adjust the width as needed */
 }
 
 /* Style for the parent container */
@@ -124,14 +128,14 @@ body {
 .homepage-header {
     margin-top: 30px; 
     color: #393D3F;
-    font-family: "Street - Plain",sans-serif;
     font-size: 32px;
     font-style: normal;
     /* font-weight: 400; */
-    font-weight: bold;
+    /* font-weight: bold; */
     line-height: normal;
     margin-bottom: 20px; 
-    
+    font-family: "Street-Plain",sans-serif;
+
     /* for whole-text animation */
     /* animation: floatUpDown 3s ease-in-out infinite; Adjust duration and timing as needed */
 }
@@ -139,7 +143,7 @@ body {
 /* Style for the paragraph element */
 .homepage-text {
     color: #393D3F;
-    font-family: "Street - Plain",sans-serif;
+    font-family: "Street-Plain",sans-serif;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;

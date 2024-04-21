@@ -6,9 +6,21 @@ import homeIcon from '../assets/icon-home.svg';
 import studyGroupIcon from '../assets/icon-groups.svg';
 import studyStatsIcon from '../assets/icon-stats.svg';
 import avatarIcon from '../assets/icon-avatar.svg';
+import useLogout from "../hooks/useLogout.js";
 
 
 const Navbar = () => {
+
+  const { logout } = useLogout();
+
+    const LogoutButton = () => {
+        return (
+            <div>
+                <button className="logout-button"onClick={logout}>Log out</button>
+            </div>
+        )
+    }
+
   return (
     <div className="navbar">
       <p className="studyMates">StudyMates</p>
@@ -34,11 +46,14 @@ const Navbar = () => {
         <NavLink  style={{ textDecoration: 'none' }} to="/" >
         <div className="link-nav">
         <img src={avatarIcon} alt="My Avatar" className="nav-icon" />
-        My Avatar</div>
+          My Avatar</div>
         </NavLink>
-      </div>
 
+        <LogoutButton /> 
+      </div>
     </div>
+
+    
   );
 };
 

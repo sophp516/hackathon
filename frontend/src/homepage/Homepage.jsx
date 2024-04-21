@@ -6,18 +6,15 @@ import Navbar from "../navbar/navbar.jsx";
 import './Homepage.css'
 
 const Homepage = () => {
-    const { logout } = useLogout();
-    //const { url } = useGetAvatar();
-    
-    
+    // const { logout } = useLogout();
 
-    const LogoutButton = () => {
-        return (
-            <div>
-                <button className="homepage-button"onClick={logout}>log out</button>
-            </div>
-        )
-    }
+    // const LogoutButton = () => {
+    //     return (
+    //         <div>
+    //             <button className="homepage-button"onClick={logout}>log out</button>
+    //         </div>
+    //     )
+    // }
     return (
         <div className="homepage-main-container">
             <Navbar className="nav-bar"/>
@@ -46,7 +43,7 @@ const Homepage = () => {
                 <div className="right-column">
                     <Timer className="timer-component" />
                     <TaskManager />
-                    <LogoutButton />
+                    {/* <LogoutButton /> */}
                 </div>
             </div>
         </div>
