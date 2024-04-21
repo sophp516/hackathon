@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import connectToMongoDB from "./db/mongodb.js";
 import authRoutes from "./routes/auth.routes.js";
 import groupRoutes from "./routes/group.routes.js"
+import userRoutes from "./routes/user.routes.js"
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -17,6 +18,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/studygroup", groupRoutes);
+app.use("/api/user", userRoutes);
 
 app.listen(PORT, () => {
     connectToMongoDB();
