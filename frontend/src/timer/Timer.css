@@ -1,0 +1,168 @@
+/* timer.css */
+
+/* Font face for buttons */
+@font-face {
+    font-family: 'Street - Plain';
+    src: url('../fonts/street__-webfont.woff') format('woff'),
+         url('../fonts/street__-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* *{
+    margin: 0;
+    padding: 0;
+    /* font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    /* font-family: "Street - Plain",sans-serif; */
+/* }  */
+/* 
+body {
+    margin: 0;
+    display: flex;
+    place-items: top;
+    width: 100vh;
+    height: 100vh;
+    background: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 0%;
+    justify-content: center;
+    align-content: top;
+
+} */
+
+.timer-container {
+    display: flex;
+    align-items: top;
+    justify-content: top;
+    flex-direction: column;
+    /* margin: 0 400px; */
+    min-width: 600px;
+    max-width: 900px;
+    background: rgba(255, 255, 255);
+    box-shadow: 6px 6px 0px 0px #000;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border-radius: 10px;
+    border: 2px solid rgb(1, 1, 1);
+    padding: 0px 0px 10px 0px; /* No padding-top */
+
+    font-family: "Street - Plain";
+    margin-bottom: 100px;
+}
+
+.heading {
+    width: 100%;
+    height: 45px;
+    background-color: #FFBC23;
+    box-sizing: border-box;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom: 2px solid rgb(1, 1, 1);
+    margin-top: 0; /*fix this */
+    margin-left: 0;
+    margin-right: 0;
+    
+    color: #000000;
+    font-size: 30px;
+    font-weight: lighter;
+    text-align: center;
+    letter-spacing: 5px;
+    word-spacing: 10px;
+    margin-bottom: 30px;
+
+}
+
+
+.timer{
+    width: 100%;
+    text-align: center;
+    display: -webkit-inline-flex;
+    justify-content: space-evenly;
+    margin-top: -7px;
+}
+
+.sub_timer {
+    width: 110px;
+    height: 70px;  /* Ensure enough height for proper layout */
+    background: rgba(188,46,84,1);
+    backdrop-filter: blur(30px);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute children evenly */
+    align-items: center;  /* Center children horizontally */
+    position: relative;  /* Needed if using absolute positioning for child */
+    border-radius: 12px;
+    border: 1.5px solid #000;
+
+}
+
+.digit {
+    color: #ffffff;
+    font-weight: lighter;
+    font-size: 40px;
+    margin: 0px;
+    padding: 0;
+}
+
+.digit_name {
+    color: #ffffff;
+    background: #A7272D;
+    backdrop-filter: blur(20px);
+    font-size: 11px;
+    font-weight: bolder;
+    letter-spacing: 6px;
+    margin: 0;
+    padding: 6px 0;
+    width: 100%;
+    text-align: center;
+    position: absolute;  /* Position it at the bottom of `.sub_timer` */
+    bottom: 0;  /* Align to the bottom */
+    left: 0;  /* Align horizontally */
+}
+  
+button {
+    color:#000000;
+    background: transparent; /* Ensures the background is fully transparent */
+    border: none; /* Removes the border */
+    font-size: 20px;
+    font-weight: lighter;
+    cursor: pointer;
+    outline: none; /* Removes focus outline */
+    box-shadow: none; /* Ensures no shadow is applied */
+    font-family: "Street - Plain",sans-serif;
+}
+
+.button{
+    display: flex;
+    justify-content: center;  /* Centers the buttons horizontally */
+    align-items: center;  /* Aligns the buttons vertically */
+    gap: 60px;  /* Adjust this value to bring buttons closer or further apart */
+    width: 100%;  /* Ensures the container takes the full width */
+}
+
+.sub_button{
+    width: 80px;
+    height: 40px;
+    background: rgba(43,156,80,1);
+    backdrop-filter: blur(100%);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1.5px solid #000;
+}
+
+button:hover, button:focus {
+    background: rgba(0, 0, 0, 0); /* Optional: adds a slight background on hover/focus for better interaction visibility */
+}
