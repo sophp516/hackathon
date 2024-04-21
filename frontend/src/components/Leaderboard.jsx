@@ -35,7 +35,7 @@ const Leaderboard = (props) => {
                 {leaderboard.map(user => (
                     <div className='individuals' key={user}>
                         <div className='individual-info'> 
-                            <span>{user.rank}   </span>
+                            <span className="rank-css">{user.rank}   </span>
                             <span>{user.avatar}   </span>
                             <span>{user.name}   </span>
                             <span>{formatTime(user.time)}</span>

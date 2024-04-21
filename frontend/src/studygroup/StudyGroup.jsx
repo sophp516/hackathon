@@ -13,6 +13,7 @@ const StudyGroup = (props) => {
     const { members } = useGetMembers(groupId);
     const { leaveGroup } = useLeaveGroup();
     const [leave, setleave] = useState(false);
+
     const [coordinates, setCoordinates] = useState({
         x: '',
         y: '',
@@ -30,8 +31,8 @@ const StudyGroup = (props) => {
         {
             name: "ranom",
             avatar: "./assets/redpanda.png",
-            x: 200,
-            y: 100,
+            x: 500,
+            y: 300,
         }
     ])
 
@@ -64,6 +65,7 @@ const StudyGroup = (props) => {
     }, [select, users, selectedName]); 
 
     console.log(members)
+
     const navigateTo = useNavigate();
 
     useEffect(() => {
@@ -94,8 +96,10 @@ const StudyGroup = (props) => {
 
     return (
 
-        <div className='group-container'>
-            <button onClick={handleLeaveGroup}>leave</button>
+        <div>
+            <img src="src/assets/map.png" id="map"/>
+        <div className="studyspace-big-div">
+            <button onClick={handleLeaveGroup} id="create-group" >leave</button>
 
             {users.map((user, index) => (
             user.avatar ? ( // Check if `avatar` property exists
@@ -108,6 +112,7 @@ const StudyGroup = (props) => {
                     />
                     <p>{user.name}</p>
                 </div>
+                
             ) : null // Handle the case where `avatar` is not defined
         ))}
 
@@ -117,7 +122,10 @@ const StudyGroup = (props) => {
             <Leaderboard 
                 members={members} 
                 />
+          
         </div>
+        </div>
+       
     );
 };
 
