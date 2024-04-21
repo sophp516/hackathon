@@ -159,8 +159,7 @@ button {
     /* position: absolute; */
    
     position: fixed;
-    top: 20px; /* Adjust as needed */
-    left: 350px; /* Adjust as needed */
+    top: 20px; /* Adjust as needed */ /* Adjust as needed */
     z-index: 999;
 }
 
