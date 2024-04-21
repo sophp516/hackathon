@@ -4,7 +4,7 @@ const MockData = {
         {
             id:1,
             name: "group1",
-            image: null,
+            image: "/assets/white.png",
             description: "computer science",
             members: ["person1, person2, person3"]
         },

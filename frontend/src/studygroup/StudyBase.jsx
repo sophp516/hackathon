@@ -6,6 +6,8 @@ import StudyGroup from './StudyGroup.jsx';
 import './StudyBase.css';
 import useGetMyGroup from '../hooks/useGetMyGroup.js';
 import useCreateGroup from '../hooks/useCreateGroup.js';
+import Navbar from '../navbar/navbar.jsx';
+import useGetGroup from '../hooks/useGetGroup.js';
 
 const StudyBase = () => {
     const [joinedStatus, setJoinedStatus] = useState(false);
@@ -21,6 +23,7 @@ const StudyBase = () => {
     const { joinGroup } = useJoinGroup();
     const { createGroup } = useCreateGroup();
     const { myGroup } = useGetMyGroup();
+
     console.log(myGroup);
 
     useEffect(() => {
@@ -57,6 +60,9 @@ const StudyBase = () => {
         await joinGroup(groupId)
         setJoinedStatus(true)
     }
+    const handleJoinStatus = () => {
+        setJoinedStatus(!joinedStatus)
+    }
         
 
     const handleSubmit = async () => {
@@ -81,24 +87,23 @@ const StudyBase = () => {
         }
     }
 
-
-
     console.log("Groups in StudyGroup:",newGroup); 
 
     return (
         <div className='main-container'>
-            <p>Hello</p>
+            <Navbar />
             {joinedStatus ? 
-            <div>
                 <StudyGroup 
                     status={myGroup}
-                    />
-                </div>
-            :<div>
-                <div>
+                    handleJoinStatus={handleJoinStatus}
+                />
+            
+            :<div className="div1">
+                <div className="div2">
                     {/* this will a over lay with z- index of 1 */}
                     {createStatus ? 
                     <div className='create-group-container'> 
+                        <button onClick={()=>setCreateStatus(false)}>X</button>
                         <input
                             placeholder='Name of the Group'
                             type='text'
@@ -125,7 +130,7 @@ const StudyBase = () => {
                         </div>
                     : 
                     <div>
-                          <button type='button' onClick={()=>setCreateStatus(!createStatus)}>Create Group</button>
+                          <button type='button' id="create-group" onClick={()=>setCreateStatus(!createStatus)}>Create Group</button>
                     </div>}
                 </div>
                  <JoinGroup

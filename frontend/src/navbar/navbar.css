@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 350px;
+    background-color: #A7272D;
+}
+
+.studyMates {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 200;
+    color: #FFFAE7;
+    padding-top: 30px;
+    padding-bottom: 70px;
+    border-bottom: 2px solid black;
+}
+
+.link-nav {
+    color: #FFFAE7;
+    border: none;
+    font-size: 20px;
+    padding-left: 60px;
+    padding-top: 20px;
+}
+
+.first {
+    padding-top: 30px;
+}
+
+.navlink-container {
+    width: 93%;
+    height: 100%;
+    border-right: 2px solid black;
+}
+
+

@@ -1,16 +1,15 @@
 import useLogout from "../hooks/useLogout.js";
 import Timer from "../timer/Timer.jsx";
 import TaskManager from "../taskmanager/App.jsx";
-import useGetAvatar from "../hooks/useGetAvatar.js";
+// import useGetAvatar from "../hooks/useGetAvatar.js";
+import Navbar from "../navbar/navbar.jsx";
 import './Homepage.css'
 
 const Homepage = () => {
     const { logout } = useLogout();
-    const { url } = useGetAvatar();
-    const parts = url.url.toString().split("/");
-    const fileName = parts[parts.length - 1];
-    const newUrl = `/src/assets/${fileName}`;
-    console.log(url)
+    //const { url } = useGetAvatar();
+    
+    
 
     const LogoutButton = () => {
         return (
@@ -20,11 +19,14 @@ const Homepage = () => {
         )
     }
     return (
-        <div className="homepage-main-container">
-            <img src={newUrl} />
-            <Timer />
-            <TaskManager />
-            <LogoutButton />
+        <div className="main-main-main">
+            <Navbar />
+            <div className="main-main-right">
+                <img src="src/assets/default.png" />
+                <Timer />
+                <TaskManager />
+                <LogoutButton />
+            </div>
         </div>
 
     )

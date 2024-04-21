@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import Leaderboard from '../components/Leaderboard';
 import useGetMembers from '../hooks/useGetMembers';
 import useLeaveGroup from '../hooks/useLeaveGroup';
+import "./StudyBase.css"
+
 
 const StudyGroup = (props) => {
     const [groupId, setGroupId] = useState('');
@@ -20,6 +23,7 @@ const StudyGroup = (props) => {
     const handleLeaveGroup = async () => {
         try {
             await leaveGroup(); 
+            props.handleJoinStatus();
             console.log('Left the group successfully.');
         } catch (error) {
             console.error('Error leaving group:', error);
@@ -30,7 +34,9 @@ const StudyGroup = (props) => {
 
     return (
         <div>
-            <button onClick={handleLeaveGroup}>leave</button>
+            <button onClick={handleLeaveGroup} id="create-group" >leave</button>
+            
+           
             <Leaderboard 
                 members={members} 
                 />
