@@ -18,10 +18,10 @@ const StudyGroup = (props) => {
         y: '',
     });
     const[select, setSelect] = useState(false);
-    const [selectedName, setName] = useState('');
+    const [selectedName, setName] = useState('joyce');
     const [users, setUsers] = useState([
         {
-            name: "joyceeee",
+            name: "joyce",
             avatar: "./assets/redpanda.png",
             x: 50,
             y: 155
@@ -35,33 +35,33 @@ const StudyGroup = (props) => {
         }
     ])
 
-    const handleLocation = (event) => {
-        if (select === true) {
-            const updatedUsers = users.map((user) => {
-                if (user.name === selectedName) {
-                    return { ...user, x: event.clientX, y: event.clientY };
-                }
-                return user;
-            });
-            setUsers(updatedUsers);
-            // Update the coordinates state if necessary
-            // setCoordinates({ x: event.clientX, y: event.clientY }); 
-        }
-        // Reset the selected avatar after setting the position
-        setSelect(false);
-        setName('');
-    };
     
    
     useEffect(() => {
-       
-        window.addEventListener('click', handleLocation); // listens for clicks, and send coordinates to handler
-
-        return () => { // remove listener once a click is detected
-            window.removeEventListener('click', handleLocation);
+        const handleLocation = (event) => {
+            if (select) { // Make sure this is true when an avatar is selected
+                const updatedUsers = users.map(user => {
+                    if (user.name === selectedName) {
+                        return { ...user, x: event.clientX, y: event.clientY };
+                    }
+                    return user;
+                });
+                setUsers(updatedUsers);
+                setSelect(false); // Reset select status after positioning
+            }
         };
     
-    }, [select]);
+        // Attach the event listener to the window only if an avatar is selected
+        if (select) {
+            window.addEventListener('click', handleLocation);
+        }
+    
+        return () => {
+            if (select) {
+                window.removeEventListener('click', handleLocation);
+            }
+        };
+    }, [select, users, selectedName]); 
 
     console.log(members)
     const navigateTo = useNavigate();
@@ -81,24 +81,32 @@ const StudyGroup = (props) => {
         navigateTo("/studybase")  
     }
     
-    const selectAvatar = (event) => {
-        setSelect(!false); // select and unselect
-        setName(event); //name of user
-       
-    }
-    
+    const selectAvatar = (name, event) => {
+        event.stopPropagation(); // Prevent the document-level click handler from firing immediately.
+        if (selectedName === name && select) {
+            setSelect(false);
+            setName(''); // Deselect the avatar
+        } else {
+            setSelect(true);
+            setName(name); // Select the new avatar
+        }
+    };
 
     return (
         <div className='group-container'>
             <button onClick={handleLeaveGroup}>leave</button>
+
             {users.map((user, index) => (
             user.avatar ? ( // Check if `avatar` property exists
-                <img key={index}
-                     src={user.avatar}
-                     style={{ position: 'absolute', left: `${user.x}px`, top: `${user.y}px` }}
-                     id='avatar'
-                     onClick={(e) => selectAvatar(user.name)}
-                />
+                <div key={index} className='avatar-container' 
+                 style={{ position: 'absolute', left: `${user.x}px`, top: `${user.y}px` }}>
+                    <img
+                        src={user.avatar}
+                        id='avatar'
+                        onClick={(e) => selectAvatar(user.name,e)}
+                    />
+                    <p>{user.name}</p>
+                </div>
             ) : null // Handle the case where `avatar` is not defined
         ))}
 
