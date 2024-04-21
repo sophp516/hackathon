@@ -1,6 +1,15 @@
+/* eslint-disable no-unused-vars */
+import React from "react";
+import Leaderboard from "../components/Leaderboard";
+
+
 const Homepage = () => {
     return (
-        <div>HOME</div>
+        <div>HOME
+
+            <Leaderboard/>
+        </div>
+        
     )
 }
 

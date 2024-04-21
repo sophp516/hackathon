@@ -44,7 +44,6 @@ const StudyBase = () => {
         console.log(image);
 
     }
-        
 
     const handleSubmit = () => {
         if (newGroup.name=== ''){
@@ -77,6 +76,7 @@ const StudyBase = () => {
                     {/* this will a over lay with z- index of 1 */}
                     {createStatus ? 
                     <div className='create-group-container'> 
+                        <button onClick={()=>setCreateStatus(false)}>X</button>
                         <input
                             placeholder='Name of the Group'
                             type='text'
