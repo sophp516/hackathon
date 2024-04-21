@@ -20,7 +20,7 @@ const App = () => {
   return (
 
     <Router>
-      {/* {authUser ?  <Navbar /> : <Navigate to={"/login"} /> } */}
+      {authUser ?  <Navbar /> :  <div></div>}
         
       <div>
        <Routes>

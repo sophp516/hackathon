@@ -1,0 +1,12 @@
+.group-container{
+
+}
+#avatar{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    z-index: 99;
+    left: 10%;
+    bottom: 51%;
+    cursor: pointer;
+}

@@ -17,7 +17,7 @@ const JoinGroup = (props) => {
                 <div className='group-container' key={group._id}>
                     <div >
                         <h2>{group.groupName}</h2>
-                        <img src={group.image}/>
+                        <img src={group.groupImage}/>
                         <p>{group.description}</p>
                     </div>
 
